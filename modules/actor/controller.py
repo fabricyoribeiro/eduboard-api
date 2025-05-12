@@ -1,0 +1,31 @@
+from flask import Blueprint, request, make_response
+
+from modules.actor.dao import ActorDao
+from modules.actor.actor import Actor
+
+app_actor = Blueprint('actor_blueprint', __name__)
+app_name = 'actor'
+dao_actor = ActorDao()
+
+@app_actor.route(f"/{app_name}/add", methods=['POST'])
+def add_actor():
+  data = request.get_json()
+  
+  print("data", data)
+  errors = []
+  for key in Actor.VALUES:
+    if key not in data.keys():
+      errors.append({'field': key, 'message': "Este campo é obrigatório"})
+      
+  if errors:
+    return make_response({'errors': errors}, 400)
+    
+  actor = dao_actor.get_by_username(data.get('username'))
+  if actor:
+    return make_response({'error': 'Actor já existe'}, 400)
+  
+  actor = Actor(**data)
+  actor = dao_actor.save(actor)
+  return make_response({
+    'username': actor.username
+  })
