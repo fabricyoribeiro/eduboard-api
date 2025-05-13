@@ -1,13 +1,13 @@
 import psycopg2
+import os
 
 class ConnectDataBase:
-  def __init__(self):
-    self._connect = psycopg2.connect(
-      host="ep-delicate-frost-a5pyytjt-pooler.us-east-2.aws.neon.tech",
-      database="eduboard",
-      user="eduboard_owner",
-      password="npg_4Cp1BUurWOak"
-    )
+    def __init__(self):
+        try:
+            self._connect = psycopg2.connect(os.environ.get("DATABASE_URL"))
+        except psycopg2.Error as e:
+            print("Erro ao conectar ao banco de dados:", e)
+            self._connect = None
 
-  def get_instance(self):
-    return self._connect
+    def get_instance(self):
+        return self._connect
