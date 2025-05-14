@@ -2,6 +2,9 @@
 
 from flask import Flask
 from modules.actor.controller import app_actor
+from modules.verb.controller import app_verb
+from modules.object.controller import app_object
+from modules.subject.controller import app_subject
 
 from flask_cors import CORS
 
@@ -12,11 +15,14 @@ app = Flask(__name__)
 CORS(app)
 
 app.register_blueprint(app_actor)
+app.register_blueprint(app_verb)
+app.register_blueprint(app_object)
+app.register_blueprint(app_subject)
 
 @app.route("/")
 def hello_world():
-  return "<h1>Hidd<h1/>"
+  return "<h1>API online<h1/>"
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

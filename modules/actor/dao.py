@@ -9,7 +9,7 @@ class ActorDao:
   _SELECT_ALL = f'SELECT * FROM {_TABLE_NAME}'
   _SELECT_BY_USERNAME = "SELECT * FROM {} WHERE USERNAME='{}'"
   _DELETE = 'DELETE FROM {} WHERE ID={}'
-  _UPDATE = "UPDATE {} SET {}='{}', {}='{}', {}='{}', {}='{}', {}='{}', {}='{}' WHERE USERNAME={}"
+  _UPDATE = "UPDATE {} SET {}='{}', {}='{}', {}='{}' WHERE USERNAME={}"
 
   
   def __init__(self):
@@ -37,3 +37,17 @@ class ActorDao:
     print("Ator salvo", actor)
     cursor.close()
     return actor
+
+  def get_all(self):
+      actors = []
+      cursor = self.database.cursor()
+      cursor.execute(self._SELECT_ALL)
+      all_actors = cursor.fetchall()
+      coluns_name = [desc[0] for desc in cursor.description]
+      for actor_query in all_actors:
+          data = dict(zip(coluns_name, actor_query))
+          actor = Actor(**data)
+          actors.append(actor)
+      cursor.close()
+      return actors
+    

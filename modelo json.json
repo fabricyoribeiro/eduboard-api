@@ -1,0 +1,50 @@
+{
+  "actor": {
+    "username": "joaosilva",
+    "name": "João Silva",
+    "age": 6 
+  },
+  "verb": {
+    "id": "http://libramigo.com/expapi/verbs/answered",
+    "display": {
+      "pt-BR": "respondeu",
+      "en-US": "answered"
+    }
+  },
+  "object": {
+    "id": "http://libramigo.com/nivel1/desafio1",
+    "definition": {
+      "name": {
+        "pt-BR": "Desafio de Associação",
+        "en-US": "Association Challenge"
+        
+      },
+      "description": {
+        "pt-BR": "Selecione a letra correspondente ao sinal",
+        "en-US": "Select the letter corresponding to the sign"
+      }
+    }
+  },
+  "subject": {
+    "definition": {
+      "name": {
+        "pt-BR": "Datilologia",
+        "en-US": "Dactylology"
+      },
+      "description": {
+        "pt-BR": "Representação das letras de um alfabeto através de sinais feitos com as mãos",
+        "en-US": "Representation of the letters of an alphabet through hand signs"
+      }
+
+    }
+  },
+  "result": {
+    "success": true,
+    "response": "A"
+  },
+  "date_time": "2025-03-02T14:35:00Z",
+  "response_time": {
+    "seconds": 120
+  } 
+}
+
