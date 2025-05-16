@@ -13,7 +13,8 @@ def add_verb():
   errors = []
   for key in Verb.VALUES:
     if key not in data.keys():
-      errors.append({'field': key ,'message': 'Este campo é obrigatório'}, 400)
+      errors.append({'field': key ,'message': 'Este campo é obrigatório'})
+  
   if errors:
     return make_response({"errors": errors})
   verb = dao_verb.get_by_id(data.get(id))

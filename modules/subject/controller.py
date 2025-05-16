@@ -39,5 +39,5 @@ def get_subject(id):
 @app_subject.route(f"/{app_name}/all", methods=['GET'])
 def get_subjects():
   subjects = dao_subject.get_all()
-  data = [object.get_data_dict() for object in subjects]
+  data = [subject.get_data_dict() for subject in subjects]
   return make_response(jsonify(data))

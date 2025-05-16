@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS event (
     object_id VARCHAR(100) NOT NULL,
     subject_id INTEGER NOT NULL,
     result_id INTEGER NOT NULL,
-    date_time TIMESTAMP NOT NULL,
+    date_time TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_actor FOREIGN KEY (actor_username) REFERENCES actor(username),
     CONSTRAINT fk_verb FOREIGN KEY (verb_id) REFERENCES verb(id),
     CONSTRAINT fk_object FOREIGN KEY (object_id) REFERENCES object(id),

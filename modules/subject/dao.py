@@ -8,6 +8,7 @@ class SubjectDao:
                   'values(%s, %s, %s, %s) RETURNING id'
   _SELECT_ALL = f'SELECT * FROM {_TABLE_NAME}'
   _SELECT_BY_NAME_PT = "SELECT * FROM {} WHERE NAME_PT='{}'"
+  _SELECT_BY_ID = "SELECT * FROM {} WHERE ID='{}'"
   _DELETE = 'DELETE FROM {} WHERE ID={}'
   _UPDATE = "UPDATE {} SET {}='{}', {}='{}', {}='{}', {}='{}', {}='{}' WHERE ID={}"
 
@@ -30,6 +31,19 @@ class SubjectDao:
   def get_by_name_pt(self, name_pt):
     cursor = self.database.cursor()
     cursor.execute(self._SELECT_BY_NAME_PT.format(self._TABLE_NAME, name_pt))
+    coluns_name = [desc[0] for desc in cursor.description]
+    subject = cursor.fetchone()
+    if not subject:
+      return None
+    data = dict(zip(coluns_name, subject))
+    subject = Subject(**data)
+    print("subject salvo", subject)
+    cursor.close()
+    return subject
+  
+  def get_by_id(self, id):
+    cursor = self.database.cursor()
+    cursor.execute(self._SELECT_BY_ID.format(self._TABLE_NAME, id))
     coluns_name = [desc[0] for desc in cursor.description]
     subject = cursor.fetchone()
     if not subject:
