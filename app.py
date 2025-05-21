@@ -7,6 +7,7 @@ from modules.object.controller import app_object
 from modules.subject.controller import app_subject
 from modules.result.controller import app_result
 from modules.event.controller import app_event
+from modules.analytics.controller import app_analytics
 
 from flask_cors import CORS
 
@@ -22,6 +23,7 @@ app.register_blueprint(app_object)
 app.register_blueprint(app_subject)
 app.register_blueprint(app_result)
 app.register_blueprint(app_event)
+app.register_blueprint(app_analytics)
 
 @app.route("/")
 def hello_world():
