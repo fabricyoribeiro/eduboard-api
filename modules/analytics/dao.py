@@ -1,0 +1,107 @@
+from database.connect import ConnectDataBase
+from modules.event.dao import EventDao
+from flask import make_response
+import json
+from collections import defaultdict
+
+dao_event = EventDao()
+
+class AnalyticsDao:
+  
+    _COUNT_ANSWERED_EVENTS = "SELECT COUNT(*) AS total_answered_events FROM event WHERE verb_id = 'http://libramigo.com/expapi/verbs/answered'"
+    _COUNT_ACTORS = "SELECT COUNT(*) FROM actor"
+
+    def __init__(self):
+      self.database = ConnectDataBase().get_instance()
+    
+    def get_indicators(self):
+      indicators = []
+      
+      higher_error_rate = self.get_higher_error_rate()
+      indicators.append(higher_error_rate)
+      
+      count_answered_events = self.get_count_answered_events()
+      indicators.append(count_answered_events)
+
+      count_actors = self.get_count_actors()
+      indicators.append(count_actors)
+      
+      return make_response(indicators)
+    
+    def get_count_actors(self):
+        cursor = self.database.cursor()
+        cursor.execute(self._COUNT_ACTORS)
+        row = cursor.fetchone()
+        cursor.close()
+        
+        total = row[0] if row else 0
+        return {
+            "title": "Alunos cadastrados",
+            "value": total
+        }
+
+      
+    
+    def get_count_answered_events(self):
+        cursor = self.database.cursor()
+        cursor.execute(self._COUNT_ANSWERED_EVENTS)
+        row = cursor.fetchone()
+        cursor.close()
+        
+        total = row[0] if row else 0
+        return {
+            "title": "Desafios respondidos",
+            "value": total
+        }
+
+  
+    def get_higher_error_rate(self):
+        # Abre o arquivo JSON
+        with open('base_ficticia.json', 'r', encoding='utf-8') as arquivo:
+            data = json.load(arquivo)
+    
+        # Estrutura para armazenar estatísticas por objeto (desafio)
+        desafio_stats = defaultdict(lambda: {'total': 0, 'erros': 0})
+
+        # Processar cada entrada
+        for entry in data:
+            # Verificar se é uma ação de resposta (answered ou completed)
+            if entry['verb']['display_pt'] in ['respondeu', 'concluiu']:
+                desafio_id = entry['object']['id']
+                desafio_stats[desafio_id]['total'] += 1
+                if not entry['result']['success']:
+                    desafio_stats[desafio_id]['erros'] += 1
+
+        # Calcular taxa de erro para cada desafio
+        taxas_erro = []
+        for desafio_id, stats in desafio_stats.items():
+            if stats['total'] > 0:
+                taxa = (stats['erros'] / stats['total']) * 100
+                # Extrair nível e nome do desafio do ID
+                nivel = desafio_id.split('/')[-2]  # Ex: 'nivel1'
+                # Encontrar o primeiro registro com este ID para pegar o nome
+                nome_desafio_pt = next(entry['object']['name_pt'] for entry in data if entry['object']['id'] == desafio_id)
+                taxas_erro.append({
+                    'nivel': nivel,
+                    'desafio': nome_desafio_pt,
+                    'desafio_id': desafio_id,
+                    'taxa_erro': taxa,
+                    'total_tentativas': stats['total'],
+                    'total_erros': stats['erros']
+                })
+
+        # Ordenar por taxa de erro (maior primeiro)
+        taxas_erro.sort(key=lambda x: x['taxa_erro'], reverse=True)
+
+        # Preparar resposta com apenas o primeiro lugar
+        if taxas_erro:
+            primeiro_lugar = taxas_erro[0]
+            response_data = {
+              "title": "Maior taxa de erros",
+              "value": f"Desafio {primeiro_lugar['desafio']} {primeiro_lugar['nivel']} - {primeiro_lugar['taxa_erro']}%"
+
+            }
+        else:
+            response_data = {"maior_taxa_erros": "Nenhum dado disponível"}
+        
+        return response_data
