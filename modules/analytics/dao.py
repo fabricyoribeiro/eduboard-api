@@ -14,6 +14,50 @@ class AnalyticsDao:
     def __init__(self):
       self.database = ConnectDataBase().get_instance()
     
+    def get_overall_hit_and_miss_rate(self): 
+      import json
+
+      with open("base_ficticia.json", "r", encoding="utf-8") as file:
+          data = json.load(file)
+
+      # Initialize counters
+      total = 0
+      correct = 0
+      incorrect = 0
+
+      # Iterate through the records
+      for item in data:
+          verb = item.get("verb", {})
+          verb_id = verb.get("id", "")
+          
+          # Check if verb ID ends with "/answered"
+          if verb_id.endswith("/answered"):
+              result = item.get("result", {})
+              if "success" in result:
+                  total += 1
+                  if result["success"]:
+                      correct += 1
+                  else:
+                      incorrect += 1
+
+      # Calculate percentages and return as JSON
+      if total > 0:
+          correct_percentage = round((correct / total) * 100)
+          incorrect_percentage = round((incorrect / total) * 100)
+          output = {
+              "correct_percentage": correct_percentage,
+              "incorrect_percentage": incorrect_percentage
+          }
+      else:
+          output = {
+              "correct_percentage": 0,
+              "incorrect_percentage": 0
+          }
+
+      return output
+
+      # return {"correct_percentage": 70, "incorrect_percentage": 30}
+  
     def get_indicators(self):
       indicators = []
       

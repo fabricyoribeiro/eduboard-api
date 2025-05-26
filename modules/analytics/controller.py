@@ -12,3 +12,10 @@ def get_indicators():
   
   return make_response(indicators)
 
+@app_analytics.route(f'/{app_name}/overall/hit-miss-rate', methods=["GET"])
+def get_overall_hit_and_miss_rate():
+  ##continuar
+  analytics = AnalyticsDao()
+  hit_and_miss_rate = analytics.get_overall_hit_and_miss_rate()
+
+  return make_response(hit_and_miss_rate)
