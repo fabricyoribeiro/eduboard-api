@@ -2,6 +2,7 @@ from database.connect import ConnectDataBase
 from modules.event.dao import EventDao
 from flask import make_response
 import json
+import pandas as pd
 from collections import defaultdict
 
 dao_event = EventDao()
@@ -10,9 +11,58 @@ class AnalyticsDao:
   
     _COUNT_ANSWERED_EVENTS = "SELECT COUNT(*) AS total_answered_events FROM event WHERE verb_id = 'http://libramigo.com/expapi/verbs/answered'"
     _COUNT_ACTORS = "SELECT COUNT(*) FROM actor"
+    
+    _SELECT_RESULTS_BY_ACTOR = """
+        SELECT
+        e.actor_username,
+        a.name AS actor_name,
+        r.id AS result_id,
+        r.success
+        FROM
+        event e
+        JOIN
+        actor a ON e.actor_username = a.username
+        JOIN
+        result r ON e.result_id = r.id;
+    """
+
 
     def __init__(self):
       self.database = ConnectDataBase().get_instance()
+        
+    def get_ranking(self): 
+            results = []
+            cursor = self.database.cursor()
+            cursor.execute(self._SELECT_RESULTS_BY_ACTOR)
+            all_results = cursor.fetchall()
+            coluns_name = [desc[0] for desc in cursor.description]
+            
+            for result_query in all_results:
+                data = dict(zip(coluns_name, result_query))
+                results.append(data)
+            
+            cursor.close()
+
+            # Converter a lista de resultados em DataFrame
+            df = pd.DataFrame(results)
+
+            # Calcular o percentual de acertos por ator
+            df_percent = (
+                df.groupby("actor_name")
+                .agg(total=("success", "count"), acertos=("success", "sum"))
+                .reset_index()
+            )
+            df_percent["value"] = round((df_percent["acertos"] / df_percent["total"]) * 100).astype(int)
+            df_percent = df_percent.rename(columns={"actor_name": "label"})
+
+            # Selecionar colunas e ordenar
+            ranking_json = (
+                df_percent[["label", "value"]]
+                .sort_values(by="value", ascending=False)
+                .to_dict(orient="records")
+            )
+
+            return ranking_json
     
     def get_overall_hit_and_miss_rate(self): 
       import json

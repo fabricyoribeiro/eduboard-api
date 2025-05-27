@@ -19,3 +19,11 @@ def get_overall_hit_and_miss_rate():
   hit_and_miss_rate = analytics.get_overall_hit_and_miss_rate()
 
   return make_response(hit_and_miss_rate)
+
+@app_analytics.route(f'/{app_name}/overall/ranking', methods=["GET"])
+def get_ranking():
+  ##continuar
+  analytics = AnalyticsDao()
+  ranking = analytics.get_ranking()
+
+  return make_response(ranking)
