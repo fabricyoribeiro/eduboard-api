@@ -26,6 +26,46 @@ class AnalyticsDao:
         result r ON e.result_id = r.id;
     """
 
+    def get_overall_hit_and_miss_by_subject(self):
+        with open("base_ficticia.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+        
+        # Extrair os dados relevantes
+        filtered = [
+            {
+                "subject": item["subject"]["name_pt"],
+                "success": item["result"]["success"]
+            }
+            for item in data
+            if item["verb"]["id"] == "http://libramigo.com/expapi/verbs/answered"
+        ]
+
+        # Converter para DataFrame
+        df = pd.DataFrame(filtered)
+
+        # Agrupar por subject e calcular % de acertos e erros
+        summary = (
+            df.groupby("subject")["success"]
+            .value_counts(normalize=True)
+            .unstack(fill_value=0)
+            .reset_index()
+        )
+
+        # Garantir colunas para True/False
+        summary[True] = summary.get(True, 0)
+        summary[False] = summary.get(False, 0)
+
+        # Preparar formato final
+        result = []
+        for _, row in summary.iterrows():
+            result.append({
+                "subject": row["subject"],
+                "correct_percentage": round(row[True] * 100),
+                "incorrect_percentage": round(row[False] * 100),
+            })
+
+        # Exibir resultado
+        return result
 
     def __init__(self):
       self.database = ConnectDataBase().get_instance()
