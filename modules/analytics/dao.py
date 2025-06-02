@@ -4,6 +4,7 @@ from flask import make_response
 import json
 import pandas as pd
 from collections import defaultdict
+import re
 
 dao_event = EventDao()
 
@@ -26,6 +27,63 @@ class AnalyticsDao:
         result r ON e.result_id = r.id;
     """
 
+    def __init__(self):
+      self.database = ConnectDataBase().get_instance()
+        
+    def get_overall_hit_and_miss_by_object_level(self):
+        with open("base_ficticia.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+        
+        result_dict = {
+            "levelOne": [],
+            "levelTwo": [],
+            "levelThree": []
+        }
+
+        temp_data = defaultdict(lambda: {"hits": 0, "misses": 0})
+
+        # Função auxiliar para extrair nível e nome do desafio
+        def extract_level_and_challenge(url):
+            match = re.search(r"nivel(\d+)/desafio(\d+)", url)
+            if match:
+                level = int(match.group(1))
+                challenge = int(match.group(2))
+                return level, f"Desafio {challenge}"
+            return None, None
+
+        # Processa os dados
+        for item in data:
+            object_url = item.get("object", {}).get("id", "")
+            success = item.get("result", {}).get("success", False)
+            level, challenge_name = extract_level_and_challenge(object_url)
+
+            if level is None:
+                continue
+
+            key = f"level{level}"
+            if key == "level1":
+                key = "levelOne"
+            elif key == "level2":
+                key = "levelTwo"
+            elif key == "level3":
+                key = "levelThree"
+
+            temp_data[(key, challenge_name)]["hits" if success else "misses"] += 1
+
+        # Monta a estrutura final
+        for (key, challenge), values in temp_data.items():
+            result_dict[key].append({
+                "object": challenge,
+                "hits": values["hits"],
+                "misses": values["misses"]
+            })
+
+        # Ordena os desafios numericamente
+        for level_key in result_dict:
+            result_dict[level_key].sort(key=lambda x: int(x["object"].split()[-1]))
+
+        return result_dict
+    
     def get_overall_hit_and_miss_by_subject(self):
         with open("base_ficticia.json", "r", encoding="utf-8") as file:
             data = json.load(file)
@@ -67,9 +125,7 @@ class AnalyticsDao:
         # Exibir resultado
         return result
 
-    def __init__(self):
-      self.database = ConnectDataBase().get_instance()
-        
+
     def get_ranking(self): 
             results = []
             cursor = self.database.cursor()
