@@ -33,3 +33,10 @@ def get_ranking():
   analytics = AnalyticsDao()
   ranking = analytics.get_ranking()
   return make_response(ranking)
+
+## ROTA INDIVIDUAL
+@app_analytics.route(f'/{app_name}/individual/average_time_by_object', methods=["GET"])
+def get_average_time_by_object():
+  analytics = AnalyticsDao()
+  average_time_by_object = analytics.get_average_time_by_object()
+  return make_response(average_time_by_object)

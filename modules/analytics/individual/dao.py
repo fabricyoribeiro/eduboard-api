@@ -1,5 +1,6 @@
 from database.connect import ConnectDataBase
 from modules.event.dao import EventDao
+from modules.actor.dao import ActorDao
 from flask import make_response
 import json
 import pandas as pd
@@ -7,29 +8,50 @@ from collections import defaultdict
 import re
 
 dao_event = EventDao()
+dao_actor = ActorDao()
 
-class AnalyticsDao:
+class IndividualAnalyticsDao:
   
     _COUNT_ANSWERED_EVENTS = "SELECT COUNT(*) AS total_answered_events FROM event WHERE verb_id = 'http://libramigo.com/expapi/verbs/answered'"
-    _COUNT_ACTORS = "SELECT COUNT(*) FROM actor"
     
-    _SELECT_RESULTS_BY_ACTOR = """
-        SELECT
-        e.actor_username,
-        a.name AS actor_name,
-        r.id AS result_id,
-        r.success
-        FROM
-        event e
-        JOIN
-        actor a ON e.actor_username = a.username
-        JOIN
-        result r ON e.result_id = r.id;
-    """
 
-    def __init__(self):
+    def __init__(self, username):
       self.database = ConnectDataBase().get_instance()
-       
+      self.username = username
+    
+    ## CRIAR ANALISE PARA ASSUNTO MAIOR DIFICULDADE E EVOLUÇÃO DE ACERTOS
+    def get_individual_analysis(self):
+        actor = dao_actor.get_by_username(self.username)
+        actor_data = actor.get_data_dict()
+        
+        average_time = self.get_average_time_by_object()
+        
+        higher_error_rate = self.get_higher_error_rate()
+        
+        hit_miss_rate = self.get_hit_and_miss_rate()
+        
+        hit_and_miss_by_subject = self.get_hit_and_miss_by_subject()
+        
+        hit_and_miss_by_object_level = self.get_hit_and_miss_by_object_level()
+        
+        individual_analysis =  {
+            "actor": actor_data,
+            "individual_indicators": {
+                "average_time": {"seconds": average_time},
+                "desempenho": "Bom",
+                "most_difficult_subject": "Dactilology",
+                "maior_taxa_erros": higher_error_rate
+            },
+            "hit_miss_rate": hit_miss_rate,
+            "hit_and_miss_by_subject": hit_and_miss_by_subject,
+            "hit_and_miss_by_object_level": hit_and_miss_by_object_level
+        }
+        
+
+        return individual_analysis
+  
+
+    #USANDO - OK        
     def get_average_time_by_object(self):
         with open("base_ficticia.json", "r", encoding='utf-8') as file:
             data = json.load(file)
@@ -42,6 +64,12 @@ class AnalyticsDao:
         answered_count = 0
 
         for event in data:
+            # Verifica se o evento pertence ao usuário desejado
+            username = event.get("actor_username", {}).get("username", "")
+            if username != self.username:
+                continue
+
+            # Considera apenas eventos do tipo "answered"
             verb = event.get("verb", {}).get("display_en", "")
             if verb == "answered":
                 response_time = event.get("result", {}).get("response_time_seconds", 0)
@@ -52,12 +80,10 @@ class AnalyticsDao:
             return 0  # Evita divisão por zero
 
         average_time = total_time / answered_count
-        return {"average_time": average_time}
+        return average_time
 
-        
-        
-     
-    def get_overall_hit_and_miss_by_object_level(self):
+    #USANDO - OK
+    def get_hit_and_miss_by_object_level(self):
         with open("base_ficticia.json", "r", encoding="utf-8") as file:
             data = json.load(file)
         
@@ -69,7 +95,6 @@ class AnalyticsDao:
 
         temp_data = defaultdict(lambda: {"hits": 0, "misses": 0})
 
-        # Função auxiliar para extrair nível e nome do desafio
         def extract_level_and_challenge(url):
             match = re.search(r"nivel(\d+)/desafio(\d+)", url)
             if match:
@@ -78,8 +103,14 @@ class AnalyticsDao:
                 return level, f"Desafio {challenge}"
             return None, None
 
-        # Processa os dados
         for item in data:
+            # Filtrar pelo username
+            if item.get("actor_username", {}).get("username") != self.username:
+                continue
+
+            if item.get("verb", {}).get("id") != "http://libramigo.com/expapi/verbs/answered":
+                continue
+
             object_url = item.get("object", {}).get("id", "")
             success = item.get("result", {}).get("success", False)
             level, challenge_name = extract_level_and_challenge(object_url)
@@ -97,7 +128,6 @@ class AnalyticsDao:
 
             temp_data[(key, challenge_name)]["hits" if success else "misses"] += 1
 
-        # Monta a estrutura final
         for (key, challenge), values in temp_data.items():
             result_dict[key].append({
                 "object": challenge,
@@ -105,17 +135,18 @@ class AnalyticsDao:
                 "misses": values["misses"]
             })
 
-        # Ordena os desafios numericamente
         for level_key in result_dict:
             result_dict[level_key].sort(key=lambda x: int(x["object"].split()[-1]))
 
         return result_dict
-    
-    def get_overall_hit_and_miss_by_subject(self):
+
+        
+    #USANDO - OK
+    def get_hit_and_miss_by_subject(self):
         with open("base_ficticia.json", "r", encoding="utf-8") as file:
             data = json.load(file)
         
-        # Extrair os dados relevantes
+        # Filtrar apenas os registros do usuário e verb "answered"
         filtered = [
             {
                 "subject": item["subject"]["name_pt"],
@@ -123,7 +154,12 @@ class AnalyticsDao:
             }
             for item in data
             if item["verb"]["id"] == "http://libramigo.com/expapi/verbs/answered"
+            and item["actor_username"]["username"] == self.username
         ]
+
+        # Se não houver registros, retorna lista vazia
+        if not filtered:
+            return []
 
         # Converter para DataFrame
         df = pd.DataFrame(filtered)
@@ -140,7 +176,7 @@ class AnalyticsDao:
         summary[True] = summary.get(True, 0)
         summary[False] = summary.get(False, 0)
 
-        # Preparar formato final
+        # Preparar resultado final
         result = []
         for _, row in summary.iterrows():
             result.append({
@@ -149,115 +185,54 @@ class AnalyticsDao:
                 "incorrect_percentage": round(row[False] * 100),
             })
 
-        # Exibir resultado
         return result
 
 
-    def get_ranking(self): 
-            results = []
-            cursor = self.database.cursor()
-            cursor.execute(self._SELECT_RESULTS_BY_ACTOR)
-            all_results = cursor.fetchall()
-            coluns_name = [desc[0] for desc in cursor.description]
-            
-            for result_query in all_results:
-                data = dict(zip(coluns_name, result_query))
-                results.append(data)
-            
-            cursor.close()
 
-            # Converter a lista de resultados em DataFrame
-            df = pd.DataFrame(results)
+    #USANDO - OK
+    def get_hit_and_miss_rate(self): 
 
-            # Calcular o percentual de acertos por ator
-            df_percent = (
-                df.groupby("actor_name")
-                .agg(total=("success", "count"), acertos=("success", "sum"))
-                .reset_index()
-            )
-            df_percent["value"] = round((df_percent["acertos"] / df_percent["total"]) * 100).astype(int)
-            df_percent = df_percent.rename(columns={"actor_name": "label"})
+        with open("base_ficticia.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
 
-            # Selecionar colunas e ordenar
-            ranking_json = (
-                df_percent[["label", "value"]]
-                .sort_values(by="value", ascending=False)
-                .to_dict(orient="records")
-            )
+        # Inicializa contadores
+        total = 0
+        correct = 0
+        incorrect = 0
 
-            return ranking_json
-    
-    def get_overall_hit_and_miss_rate(self): 
-      import json
+        for item in data:
+            # Filtra pelo username
+            username = item.get("actor_username", {}).get("username", "")
+            if username != self.username:
+                continue
 
-      with open("base_ficticia.json", "r", encoding="utf-8") as file:
-          data = json.load(file)
+            # Verifica se o verbo é "answered"
+            verb_id = item.get("verb", {}).get("id", "")
+            if verb_id.endswith("/answered"):
+                result = item.get("result", {})
+                if "success" in result:
+                    total += 1
+                    if result["success"]:
+                        correct += 1
+                    else:
+                        incorrect += 1
 
-      # Initialize counters
-      total = 0
-      correct = 0
-      incorrect = 0
+        # Calcula os percentuais
+        if total > 0:
+            correct_percentage = round((correct / total) * 100)
+            incorrect_percentage = round((incorrect / total) * 100)
+        else:
+            correct_percentage = 0
+            incorrect_percentage = 0
 
-      # Iterate through the records
-      for item in data:
-          verb = item.get("verb", {})
-          verb_id = verb.get("id", "")
-          
-          # Check if verb ID ends with "/answered"
-          if verb_id.endswith("/answered"):
-              result = item.get("result", {})
-              if "success" in result:
-                  total += 1
-                  if result["success"]:
-                      correct += 1
-                  else:
-                      incorrect += 1
+        return {
+            "correct_percentage": correct_percentage,
+            "incorrect_percentage": incorrect_percentage
+        }
 
-      # Calculate percentages and return as JSON
-      if total > 0:
-          correct_percentage = round((correct / total) * 100)
-          incorrect_percentage = round((incorrect / total) * 100)
-          output = {
-              "correct_percentage": correct_percentage,
-              "incorrect_percentage": incorrect_percentage
-          }
-      else:
-          output = {
-              "correct_percentage": 0,
-              "incorrect_percentage": 0
-          }
-
-      return output
 
       # return {"correct_percentage": 70, "incorrect_percentage": 30}
   
-    def get_indicators(self):
-      indicators = []
-      
-      higher_error_rate = self.get_higher_error_rate()
-      indicators.append(higher_error_rate)
-      
-      count_answered_events = self.get_count_answered_events()
-      indicators.append(count_answered_events)
-
-      count_actors = self.get_count_actors()
-      indicators.append(count_actors)
-      
-      return make_response(indicators)
-    
-    def get_count_actors(self):
-        cursor = self.database.cursor()
-        cursor.execute(self._COUNT_ACTORS)
-        row = cursor.fetchone()
-        cursor.close()
-        
-        total = row[0] if row else 0
-        return {
-            "title": "Alunos cadastrados",
-            "value": total
-        }
-
-      
     
     def get_count_answered_events(self):
         cursor = self.database.cursor()
@@ -271,17 +246,21 @@ class AnalyticsDao:
             "value": total
         }
 
-  
+    ## USANDO - OK
     def get_higher_error_rate(self):
         # Abre o arquivo JSON
         with open('base_ficticia.json', 'r', encoding='utf-8') as arquivo:
             data = json.load(arquivo)
-    
+
         # Estrutura para armazenar estatísticas por objeto (desafio)
         desafio_stats = defaultdict(lambda: {'total': 0, 'erros': 0})
 
         # Processar cada entrada
         for entry in data:
+            # Filtrar por usuário
+            if entry['actor_username']['username'] != self.username:
+                continue
+
             # Verificar se é uma ação de resposta (answered ou completed)
             if entry['verb']['display_pt'] in ['respondeu', 'concluiu']:
                 desafio_id = entry['object']['id']
@@ -296,8 +275,11 @@ class AnalyticsDao:
                 taxa = (stats['erros'] / stats['total']) * 100
                 # Extrair nível e nome do desafio do ID
                 nivel = desafio_id.split('/')[-2]  # Ex: 'nivel1'
-                # Encontrar o primeiro registro com este ID para pegar o nome
-                nome_desafio_pt = next(entry['object']['name_pt'] for entry in data if entry['object']['id'] == desafio_id)
+                # Encontrar o primeiro registro com este ID e com o mesmo usuário
+                nome_desafio_pt = next(
+                    entry['object']['name_pt'] for entry in data
+                    if entry['object']['id'] == desafio_id and entry['actor_username']['username'] == self.username
+                )
                 taxas_erro.append({
                     'nivel': nivel,
                     'desafio': nome_desafio_pt,
@@ -314,11 +296,10 @@ class AnalyticsDao:
         if taxas_erro:
             primeiro_lugar = taxas_erro[0]
             response_data = {
-              "title": "Maior taxa de erros",
-              "value": f"Desafio {primeiro_lugar['desafio']} {primeiro_lugar['nivel']} - {primeiro_lugar['taxa_erro']}%"
-
+                "title": "Maior taxa de erros",
+                "value": f"Desafio {primeiro_lugar['desafio']} {primeiro_lugar['nivel']} - {primeiro_lugar['taxa_erro']:.2f}%"
             }
         else:
-            response_data = {"maior_taxa_erros": "Nenhum dado disponível"}
-        
+            response_data = {"title": "Maior taxa de erros", "value": "Nenhum dado disponível"}
+
         return response_data
