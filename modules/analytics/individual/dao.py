@@ -12,11 +12,11 @@ dao_actor = ActorDao()
 
 class IndividualAnalyticsDao:
   
-    _COUNT_ANSWERED_EVENTS = "SELECT COUNT(*) AS total_answered_events FROM event WHERE verb_id = 'http://libramigo.com/expapi/verbs/answered'"
+    # _COUNT_ANSWERED_EVENTS = "SELECT COUNT(*) AS total_answered_events FROM event WHERE verb_id = 'http://libramigo.com/expapi/verbs/answered'"
     
 
     def __init__(self, username):
-      self.database = ConnectDataBase().get_instance()
+    #   self.database = ConnectDataBase().get_instance()
       self.username = username
     
     ## CRIAR ANALISE PARA ASSUNTO MAIOR DIFICULDADE E EVOLUÇÃO DE ACERTOS
@@ -34,22 +34,100 @@ class IndividualAnalyticsDao:
         
         hit_and_miss_by_object_level = self.get_hit_and_miss_by_object_level()
         
+        individual_evolution = self.get_individual_evolution()
+        
+        answered_events = self.get_count_answered_events()
+        
+        most_difficult_subject = self.get_most_difficult_subject()
+        
         individual_analysis =  {
             "actor": actor_data,
             "individual_indicators": {
                 "average_time": {"seconds": average_time},
                 "desempenho": "Bom",
-                "most_difficult_subject": "Dactilology",
-                "maior_taxa_erros": higher_error_rate
+                "most_difficult_subject": most_difficult_subject,
+                "maior_taxa_erros": higher_error_rate,
+                "count_answered_events": answered_events 
             },
             "hit_miss_rate": hit_miss_rate,
             "hit_and_miss_by_subject": hit_and_miss_by_subject,
-            "hit_and_miss_by_object_level": hit_and_miss_by_object_level
+            "hit_and_miss_by_object_level": hit_and_miss_by_object_level,
+            "individual_evolution": individual_evolution
         }
         
 
         return individual_analysis
-  
+    
+    #USANDO
+    def get_most_difficult_subject(self):
+        with open("base_ficticia.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+                # Transforma a lista de eventos em um DataFrame
+        df = pd.json_normalize(data)
+
+        # Filtra os eventos com verb "answered" e do usuário desejado
+        answered_df = df[
+            (df["verb.display_en"] == "answered") &
+            (df["actor_username.username"] == self.username)
+        ]
+
+        if answered_df.empty:
+            return None  # Nenhum evento respondido encontrado para o usuário
+
+        # Agrupa por subject e calcula a taxa de erro (1 - taxa de acerto)
+        erro_por_subject = (
+            answered_df.groupby("subject.name_pt")["result.success"]
+            .apply(lambda x: 1 - x.mean())
+            .sort_values(ascending=False)
+        )
+
+        # Retorna o nome do subject com maior taxa de erro
+        return erro_por_subject.index[0] if not erro_por_subject.empty else None
+    
+    #USANDO - OK
+    def get_individual_evolution(self):
+        
+        # Load the JSON file (adjust the filename if needed)
+        with open("base_ficticia.json", "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        # If the JSON is a single entry instead of a list
+        if isinstance(data, dict):
+            data = [data]  # convert to list if it's a single dictionary
+
+        # Convert to DataFrame
+        df = pd.json_normalize(data)
+
+        # Set the username to filter
+        username = self.username
+
+        # Filter only entries with verb "answered" and matching username
+        filtered_df = df[
+            (df["verb.display_en"] == "answered") &
+            (df["actor_username.username"] == username)
+        ]
+
+        # Convert the date column to datetime and extract only the date
+        filtered_df["date"] = pd.to_datetime(filtered_df["date_time"]).dt.date
+
+        # Group by date and calculate the number of answers and correct answers
+        result = (
+            filtered_df
+            .groupby("date")
+            .agg(total_answers=("result.success", "count"),
+                correct_answers=("result.success", "sum"))
+            .reset_index()
+        )
+
+        # Calculate accuracy percentage per day
+        result["accuracy"] = (result["correct_answers"] / result["total_answers"] * 100).round(0).astype(int)
+
+        # Format the result for the line chart
+        result["attempts"] = ["Dia " + str(i + 1) for i in range(len(result))]
+        chart_data = result[["attempts", "accuracy"]].to_dict(orient="records")
+
+        # Display the result
+        return chart_data
 
     #USANDO - OK        
     def get_average_time_by_object(self):
@@ -80,7 +158,7 @@ class IndividualAnalyticsDao:
             return 0  # Evita divisão por zero
 
         average_time = total_time / answered_count
-        return average_time
+        return round(average_time, 1)
 
     #USANDO - OK
     def get_hit_and_miss_by_object_level(self):
@@ -233,18 +311,29 @@ class IndividualAnalyticsDao:
 
       # return {"correct_percentage": 70, "incorrect_percentage": 30}
   
-    
+    #USANDO - OK
     def get_count_answered_events(self):
-        cursor = self.database.cursor()
-        cursor.execute(self._COUNT_ANSWERED_EVENTS)
-        row = cursor.fetchone()
-        cursor.close()
-        
-        total = row[0] if row else 0
+        import json
+
+        with open('base_ficticia.json', 'r', encoding='utf-8') as file:
+            data = json.load(file)
+
+        # Garante que a base seja uma lista
+        if isinstance(data, dict):
+            data = [data]
+
+        # Filtra eventos com verb "answered" e username correspondente
+        count = sum(
+            1 for item in data
+            if item.get("verb", {}).get("display_en") == "answered"
+            and item.get("actor_username", {}).get("username") == self.username
+        )
+
         return {
             "title": "Desafios respondidos",
-            "value": total
+            "value": count
         }
+
 
     ## USANDO - OK
     def get_higher_error_rate(self):

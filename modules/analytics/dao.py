@@ -315,7 +315,7 @@ class AnalyticsDao:
             primeiro_lugar = taxas_erro[0]
             response_data = {
               "title": "Maior taxa de erros",
-              "value": f"Desafio {primeiro_lugar['desafio']} {primeiro_lugar['nivel']} - {primeiro_lugar['taxa_erro']}%"
+              "value": f"Desafio {primeiro_lugar['desafio']} {primeiro_lugar['nivel']} - {primeiro_lugar['taxa_erro']:.1f}%"
 
             }
         else:
