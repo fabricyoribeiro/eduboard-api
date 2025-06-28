@@ -154,38 +154,35 @@ class AnalyticsDao:
 
 
     def get_ranking(self): 
-            results = []
-            cursor = self.database.cursor()
+        conn = self.database.getconn()
+        try:
+            cursor = conn.cursor()
             cursor.execute(self._SELECT_RESULTS_BY_ACTOR)
             all_results = cursor.fetchall()
             coluns_name = [desc[0] for desc in cursor.description]
-            
-            for result_query in all_results:
-                data = dict(zip(coluns_name, result_query))
-                results.append(data)
-            
             cursor.close()
+        finally:
+            self.database.putconn(conn)
 
-            # Converter a lista de resultados em DataFrame
-            df = pd.DataFrame(results)
+        results = [dict(zip(coluns_name, row)) for row in all_results]
+        df = pd.DataFrame(results)
 
-            # Calcular o percentual de acertos por ator
-            df_percent = (
-                df.groupby("actor_name")
-                .agg(total=("success", "count"), acertos=("success", "sum"))
-                .reset_index()
-            )
-            df_percent["value"] = round((df_percent["acertos"] / df_percent["total"]) * 100).astype(int)
-            df_percent = df_percent.rename(columns={"actor_name": "label"})
+        df_percent = (
+            df.groupby("actor_name")
+            .agg(total=("success", "count"), acertos=("success", "sum"))
+            .reset_index()
+        )
+        df_percent["value"] = round((df_percent["acertos"] / df_percent["total"]) * 100).astype(int)
+        df_percent = df_percent.rename(columns={"actor_name": "label"})
 
-            # Selecionar colunas e ordenar
-            ranking_json = (
-                df_percent[["label", "value"]]
-                .sort_values(by="value", ascending=False)
-                .to_dict(orient="records")
-            )
+        ranking_json = (
+            df_percent[["label", "value"]]
+            .sort_values(by="value", ascending=False)
+            .to_dict(orient="records")
+        )
 
-            return ranking_json
+        return ranking_json
+
     
     def get_overall_hit_and_miss_rate(self): 
       import json
@@ -245,31 +242,42 @@ class AnalyticsDao:
       
       return make_response(indicators)
     
+    
     def get_count_actors(self):
-        cursor = self.database.cursor()
-        cursor.execute(self._COUNT_ACTORS)
-        row = cursor.fetchone()
-        cursor.close()
-        
+        conn = self.database.getconn()
+        try:
+            cursor = conn.cursor()
+            cursor.execute(self._COUNT_ACTORS)
+            row = cursor.fetchone()
+            cursor.close()
+        finally:
+            self.database.putconn(conn)
+
         total = row[0] if row else 0
         return {
             "title": "Alunos cadastrados",
             "value": total
         }
 
+
       
     
     def get_count_answered_events(self):
-        cursor = self.database.cursor()
-        cursor.execute(self._COUNT_ANSWERED_EVENTS)
-        row = cursor.fetchone()
-        cursor.close()
-        
+        conn = self.database.getconn()
+        try:
+            cursor = conn.cursor()
+            cursor.execute(self._COUNT_ANSWERED_EVENTS)
+            row = cursor.fetchone()
+            cursor.close()
+        finally:
+            self.database.putconn(conn)
+
         total = row[0] if row else 0
         return {
             "title": "Desafios respondidos",
             "value": total
         }
+
 
   
     def get_higher_error_rate(self):
