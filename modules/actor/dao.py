@@ -1,5 +1,8 @@
 from database.connect import ConnectDataBase
 from modules.actor.actor import Actor
+import json
+import pandas as pd
+
 
 class ActorDao:
   _TABLE_NAME = 'ACTOR'
@@ -38,16 +41,32 @@ class ActorDao:
     cursor.close()
     return actor
 
+  # def get_all(self):
+  #     actors = []
+  #     cursor = self.database.cursor()
+  #     cursor.execute(self._SELECT_ALL)
+  #     all_actors = cursor.fetchall()
+  #     coluns_name = [desc[0] for desc in cursor.description]
+  #     for actor_query in all_actors:
+  #         data = dict(zip(coluns_name, actor_query))
+  #         actor = Actor(**data)
+  #         actors.append(actor)
+  #     cursor.close()
+  #     return actors
+  
+
   def get_all(self):
-      actors = []
-      cursor = self.database.cursor()
-      cursor.execute(self._SELECT_ALL)
-      all_actors = cursor.fetchall()
-      coluns_name = [desc[0] for desc in cursor.description]
-      for actor_query in all_actors:
-          data = dict(zip(coluns_name, actor_query))
-          actor = Actor(**data)
-          actors.append(actor)
-      cursor.close()
-      return actors
-    
+      with open("base_ficticia.json", "r", encoding="utf-8") as file:
+          data = json.load(file)
+
+      # Extrai todos os dados de 'actor_username' diretamente
+      actors_list = [item["actor_username"] for item in data if "actor_username" in item]
+
+      # Cria DataFrame com os dados dos atores
+      actors_df = pd.DataFrame(actors_list)
+
+      # Remove duplicatas com base no campo 'username'
+      unique_actors = actors_df.drop_duplicates(subset="username")
+
+      # Converte para lista de dicionários e retorna
+      return unique_actors.to_dict(orient="records")

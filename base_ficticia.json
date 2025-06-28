@@ -1,1193 +1,1260 @@
-
 [
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
+    {
+        "id": 82,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio1",
+            "name_pt": "Almofada",
+            "name_en": "Pillow",
+            "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
+            "description_en": "Identify the initial letter of \"pillow\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 1,
+            "success": true,
+            "response": "A",
+            "response_time_seconds": 50
+        },
+        "date_time": "2025-05-25 10:00:00"
     },
-    "date_time": "Sun, 25 May 2025 10:00:00 GMT",
-    "id": 82,
-    "object": {
-      "description_en": "Identify the initial letter of \"pillow\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio1",
-      "name_en": "Pillow",
-      "name_pt": "Almofada"
+    {
+        "id": 83,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio1",
+            "name_pt": "Almofada",
+            "name_en": "Pillow",
+            "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
+            "description_en": "Identify the initial letter of \"pillow\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 2,
+            "success": false,
+            "response": "C",
+            "response_time_seconds": 120
+        },
+        "date_time": "2025-05-25 10:01:00"
     },
-    "result": {
-      "id": 1,
-      "response": "A",
-      "response_time_seconds": 50,
-      "success": true
+    {
+        "id": 85,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 4,
+            "success": false,
+            "response": "E",
+            "response_time_seconds": 10
+        },
+        "date_time": "2025-05-25 10:03:00"
     },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
+    {
+        "id": 86,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 5,
+            "success": true,
+            "response": "A",
+            "response_time_seconds": 15
+        },
+        "date_time": "2025-05-25 10:04:00"
     },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
+    {
+        "id": 88,
+        "actor_username": {
+            "username": "pedro_2025",
+            "name": "Pedro Henrique",
+            "age": 13
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio3",
+            "name_pt": "Geladeira",
+            "name_en": "Fridge",
+            "description_pt": "Aprenda o sinal em Libras para \"geladeira\".",
+            "description_en": "Learn the Libras sign for \"fridge\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 7,
+            "success": true,
+            "response": "C",
+            "response_time_seconds": 20
+        },
+        "date_time": "2025-05-25 10:10:00"
+    },
+    {
+        "id": 89,
+        "actor_username": {
+            "username": "pedro_2025",
+            "name": "Pedro Henrique",
+            "age": 13
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio3",
+            "name_pt": "Geladeira",
+            "name_en": "Fridge",
+            "description_pt": "Aprenda o sinal em Libras para \"geladeira\".",
+            "description_en": "Learn the Libras sign for \"fridge\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 8,
+            "success": true,
+            "response": "D",
+            "response_time_seconds": 10
+        },
+        "date_time": "2025-05-25 10:11:30"
+    },
+    {
+        "id": 91,
+        "actor_username": {
+            "username": "ana_lu",
+            "name": "Ana Luiza",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio4",
+            "name_pt": "Panela",
+            "name_en": "Pan",
+            "description_pt": "Aprenda o sinal em Libras para \"panela\".",
+            "description_en": "Learn the Libras sign for \"pan\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 10,
+            "success": true,
+            "response": "E",
+            "response_time_seconds": 12
+        },
+        "date_time": "2025-05-25 10:14:00"
+    },
+    {
+        "id": 92,
+        "actor_username": {
+            "username": "ana_lu",
+            "name": "Ana Luiza",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio4",
+            "name_pt": "Panela",
+            "name_en": "Pan",
+            "description_pt": "Aprenda o sinal em Libras para \"panela\".",
+            "description_en": "Learn the Libras sign for \"pan\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 11,
+            "success": false,
+            "response": "C",
+            "response_time_seconds": 28
+        },
+        "date_time": "2025-05-25 10:15:00"
+    },
+    {
+        "id": 94,
+        "actor_username": {
+            "username": "lucas_g",
+            "name": "Lucas Gomes",
+            "age": 6
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel3/desafio1",
+            "name_pt": "Sofá",
+            "name_en": "Sofa",
+            "description_pt": "Use o sinal de \"sofá\" em uma frase em Libras.",
+            "description_en": "Use the sign for \"sofa\" in a Libras sentence."
+        },
+        "subject": {
+            "id": 3,
+            "name_pt": "Frases com objetos em Libras",
+            "name_en": "Sentences with Objects in Libras",
+            "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
+            "description_en": "Build simple sentences using signs for living room objects."
+        },
+        "result": {
+            "id": 13,
+            "success": true,
+            "response": "D",
+            "response_time_seconds": 14
+        },
+        "date_time": "2025-05-25 10:20:00"
+    },
+    {
+        "id": 95,
+        "actor_username": {
+            "username": "lucas_g",
+            "name": "Lucas Gomes",
+            "age": 6
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel3/desafio1",
+            "name_pt": "Sofá",
+            "name_en": "Sofa",
+            "description_pt": "Use o sinal de \"sofá\" em uma frase em Libras.",
+            "description_en": "Use the sign for \"sofa\" in a Libras sentence."
+        },
+        "subject": {
+            "id": 3,
+            "name_pt": "Frases com objetos em Libras",
+            "name_en": "Sentences with Objects in Libras",
+            "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
+            "description_en": "Build simple sentences using signs for living room objects."
+        },
+        "result": {
+            "id": 14,
+            "success": false,
+            "response": "E",
+            "response_time_seconds": 35
+        },
+        "date_time": "2025-05-25 10:21:00"
+    },
+    {
+        "id": 97,
+        "actor_username": {
+            "username": "sofia2025",
+            "name": "Sofia Silva",
+            "age": 9
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel3/desafio2",
+            "name_pt": "Televisão",
+            "name_en": "Television",
+            "description_pt": "Use o sinal de \"televisão\" em uma frase em Libras.",
+            "description_en": "Use the sign for \"television\" in a Libras sentence."
+        },
+        "subject": {
+            "id": 3,
+            "name_pt": "Frases com objetos em Libras",
+            "name_en": "Sentences with Objects in Libras",
+            "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
+            "description_en": "Build simple sentences using signs for living room objects."
+        },
+        "result": {
+            "id": 16,
+            "success": false,
+            "response": "mesa",
+            "response_time_seconds": 33
+        },
+        "date_time": "2025-05-25 10:23:00"
+    },
+    {
+        "id": 98,
+        "actor_username": {
+            "username": "sofia2025",
+            "name": "Sofia Silva",
+            "age": 9
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel3/desafio2",
+            "name_pt": "Televisão",
+            "name_en": "Television",
+            "description_pt": "Use o sinal de \"televisão\" em uma frase em Libras.",
+            "description_en": "Use the sign for \"television\" in a Libras sentence."
+        },
+        "subject": {
+            "id": 3,
+            "name_pt": "Frases com objetos em Libras",
+            "name_en": "Sentences with Objects in Libras",
+            "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
+            "description_en": "Build simple sentences using signs for living room objects."
+        },
+        "result": {
+            "id": 17,
+            "success": true,
+            "response": "cama",
+            "response_time_seconds": 17
+        },
+        "date_time": "2025-05-25 10:24:15"
+    },
+    {
+        "id": 100,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio3",
+            "name_pt": "Cama",
+            "name_en": "Bed",
+            "description_pt": "Descubra a letra inicial de \"cama\" em Libras.",
+            "description_en": "Identify the initial letter of \"bed\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 19,
+            "success": false,
+            "response": "janela",
+            "response_time_seconds": 31
+        },
+        "date_time": "2025-05-25 10:30:00"
+    },
+    {
+        "id": 101,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio3",
+            "name_pt": "Cama",
+            "name_en": "Bed",
+            "description_pt": "Descubra a letra inicial de \"cama\" em Libras.",
+            "description_en": "Identify the initial letter of \"bed\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 20,
+            "success": true,
+            "response": "cadeira",
+            "response_time_seconds": 20
+        },
+        "date_time": "2025-05-25 10:31:10"
+    },
+    {
+        "id": 84,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio1",
+            "name_pt": "Almofada",
+            "name_en": "Pillow",
+            "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
+            "description_en": "Identify the initial letter of \"pillow\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 3,
+            "success": false,
+            "response": "A",
+            "response_time_seconds": 60
+        },
+        "date_time": "2025-05-25 10:02:30"
+    },
+    {
+        "id": 87,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 6,
+            "success": false,
+            "response": "B",
+            "response_time_seconds": 30
+        },
+        "date_time": "2025-05-25 10:05:30"
+    },
+    {
+        "id": 90,
+        "actor_username": {
+            "username": "pedro_2025",
+            "name": "Pedro Henrique",
+            "age": 13
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio3",
+            "name_pt": "Geladeira",
+            "name_en": "Fridge",
+            "description_pt": "Aprenda o sinal em Libras para \"geladeira\".",
+            "description_en": "Learn the Libras sign for \"fridge\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 9,
+            "success": false,
+            "response": "A",
+            "response_time_seconds": 25
+        },
+        "date_time": "2025-05-25 10:13:00"
+    },
+    {
+        "id": 93,
+        "actor_username": {
+            "username": "ana_lu",
+            "name": "Ana Luiza",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio4",
+            "name_pt": "Panela",
+            "name_en": "Pan",
+            "description_pt": "Aprenda o sinal em Libras para \"panela\".",
+            "description_en": "Learn the Libras sign for \"pan\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 12,
+            "success": true,
+            "response": "B",
+            "response_time_seconds": 18
+        },
+        "date_time": "2025-05-25 10:16:30"
+    },
+    {
+        "id": 96,
+        "actor_username": {
+            "username": "lucas_g",
+            "name": "Lucas Gomes",
+            "age": 6
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel3/desafio1",
+            "name_pt": "Sofá",
+            "name_en": "Sofa",
+            "description_pt": "Use o sinal de \"sofá\" em uma frase em Libras.",
+            "description_en": "Use the sign for \"sofa\" in a Libras sentence."
+        },
+        "subject": {
+            "id": 3,
+            "name_pt": "Frases com objetos em Libras",
+            "name_en": "Sentences with Objects in Libras",
+            "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
+            "description_en": "Build simple sentences using signs for living room objects."
+        },
+        "result": {
+            "id": 15,
+            "success": true,
+            "response": "bola",
+            "response_time_seconds": 22
+        },
+        "date_time": "2025-05-25 10:22:30"
+    },
+    {
+        "id": 99,
+        "actor_username": {
+            "username": "sofia2025",
+            "name": "Sofia Silva",
+            "age": 9
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel3/desafio2",
+            "name_pt": "Televisão",
+            "name_en": "Television",
+            "description_pt": "Use o sinal de \"televisão\" em uma frase em Libras.",
+            "description_en": "Use the sign for \"television\" in a Libras sentence."
+        },
+        "subject": {
+            "id": 3,
+            "name_pt": "Frases com objetos em Libras",
+            "name_en": "Sentences with Objects in Libras",
+            "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
+            "description_en": "Build simple sentences using signs for living room objects."
+        },
+        "result": {
+            "id": 18,
+            "success": true,
+            "response": "livro",
+            "response_time_seconds": 19
+        },
+        "date_time": "2025-05-25 10:25:45"
+    },
+    {
+        "id": 113,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 25,
+            "success": true,
+            "response": "B",
+            "response_time_seconds": 20
+        },
+        "date_time": "2025-05-25 11:05:00"
+    },
+    {
+        "id": 114,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 26,
+            "success": false,
+            "response": "C",
+            "response_time_seconds": 35
+        },
+        "date_time": "2025-05-25 11:06:00"
+    },
+    {
+        "id": 124,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 25,
+            "success": true,
+            "response": "B",
+            "response_time_seconds": 20
+        },
+        "date_time": "2025-05-25 11:05:00"
+    },
+    {
+        "id": 125,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 26,
+            "success": false,
+            "response": "C",
+            "response_time_seconds": 35
+        },
+        "date_time": "2025-05-25 11:06:00"
+    },
+    {
+        "id": 126,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 27,
+            "success": true,
+            "response": "D",
+            "response_time_seconds": 15
+        },
+        "date_time": "2025-05-25 11:07:00"
+    },
+    {
+        "id": 127,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio1",
+            "name_pt": "Faca",
+            "name_en": "Knife",
+            "description_pt": "Aprenda o sinal em Libras para \"faca\".",
+            "description_en": "Learn the Libras sign for \"knife\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 28,
+            "success": false,
+            "response": "E",
+            "response_time_seconds": 25
+        },
+        "date_time": "2025-05-25 11:15:00"
+    },
+    {
+        "id": 128,
+        "actor_username": {
+            "username": "maria_edu",
+            "name": "Maria Eduarda",
+            "age": 11
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio1",
+            "name_pt": "Faca",
+            "name_en": "Knife",
+            "description_pt": "Aprenda o sinal em Libras para \"faca\".",
+            "description_en": "Learn the Libras sign for \"knife\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 25,
+            "success": true,
+            "response": "B",
+            "response_time_seconds": 20
+        },
+        "date_time": "2025-05-25 11:16:00"
+    },
+    {
+        "id": 102,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio1",
+            "name_pt": "Almofada",
+            "name_en": "Pillow",
+            "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
+            "description_en": "Identify the initial letter of \"pillow\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 21,
+            "success": false,
+            "response": "porta",
+            "response_time_seconds": 26
+        },
+        "date_time": "2025-05-26 11:00:00"
+    },
+    {
+        "id": 103,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio1",
+            "name_pt": "Almofada",
+            "name_en": "Pillow",
+            "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
+            "description_en": "Identify the initial letter of \"pillow\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 22,
+            "success": true,
+            "response": "espelho",
+            "response_time_seconds": 24
+        },
+        "date_time": "2025-05-26 11:01:00"
+    },
+    {
+        "id": 104,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio1",
+            "name_pt": "Almofada",
+            "name_en": "Pillow",
+            "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
+            "description_en": "Identify the initial letter of \"pillow\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 23,
+            "success": false,
+            "response": "armário",
+            "response_time_seconds": 29
+        },
+        "date_time": "2025-05-26 11:02:00"
+    },
+    {
+        "id": 116,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/started",
+            "display_pt": "iniciou",
+            "display_en": "started"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio1",
+            "name_pt": "Almofada",
+            "name_en": "Pillow",
+            "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
+            "description_en": "Identify the initial letter of \"pillow\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 21,
+            "success": false,
+            "response": "porta",
+            "response_time_seconds": 26
+        },
+        "date_time": "2025-05-27 11:00:00"
+    },
+    {
+        "id": 117,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio1",
+            "name_pt": "Almofada",
+            "name_en": "Pillow",
+            "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
+            "description_en": "Identify the initial letter of \"pillow\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 22,
+            "success": true,
+            "response": "espelho",
+            "response_time_seconds": 24
+        },
+        "date_time": "2025-05-27 11:01:00"
+    },
+    {
+        "id": 120,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio1",
+            "name_pt": "Almofada",
+            "name_en": "Pillow",
+            "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
+            "description_en": "Identify the initial letter of \"pillow\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 23,
+            "success": false,
+            "response": "armário",
+            "response_time_seconds": 29
+        },
+        "date_time": "2025-05-28 11:02:00"
+    },
+    {
+        "id": 123,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio4",
+            "name_pt": "Despertador",
+            "name_en": "Alarm Clock",
+            "description_pt": "Descubra a letra inicial de \"despertador\" em Libras.",
+            "description_en": "Identify the initial letter of \"alarm clock\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 21,
+            "success": false,
+            "response": "porta",
+            "response_time_seconds": 26
+        },
+        "date_time": "2025-05-27 11:11:00"
+    },
+    {
+        "id": 121,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio4",
+            "name_pt": "Despertador",
+            "name_en": "Alarm Clock",
+            "description_pt": "Descubra a letra inicial de \"despertador\" em Libras.",
+            "description_en": "Identify the initial letter of \"alarm clock\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 24,
+            "success": true,
+            "response": "tapete",
+            "response_time_seconds": 16
+        },
+        "date_time": "2025-05-28 11:10:00"
+    },
+    {
+        "id": 129,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio1",
+            "name_pt": "Faca",
+            "name_en": "Knife",
+            "description_pt": "Aprenda o sinal em Libras para \"faca\".",
+            "description_en": "Learn the Libras sign for \"knife\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 9,
+            "success": false,
+            "response": "A",
+            "response_time_seconds": 25
+        },
+        "date_time": "2025-06-28 18:20:21.935000"
+    },
+    {
+        "id": 130,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio2",
+            "name_pt": "Garfo",
+            "name_en": "Fork",
+            "description_pt": "Aprenda o sinal em Libras para \"garfo\".",
+            "description_en": "Learn the Libras sign for \"fork\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 9,
+            "success": false,
+            "response": "A",
+            "response_time_seconds": 25
+        },
+        "date_time": "2025-06-28 18:51:03.898000"
     }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Sun, 25 May 2025 10:01:00 GMT",
-    "id": 83,
-    "object": {
-      "description_en": "Identify the initial letter of \"pillow\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio1",
-      "name_en": "Pillow",
-      "name_pt": "Almofada"
-    },
-    "result": {
-      "id": 2,
-      "response": "C",
-      "response_time_seconds": 120,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 10:03:00 GMT",
-    "id": 85,
-    "object": {
-      "description_en": "Identify the initial letter of \"doll\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio2",
-      "name_en": "Doll",
-      "name_pt": "Boneca"
-    },
-    "result": {
-      "id": 4,
-      "response": "E",
-      "response_time_seconds": 10,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 10:04:00 GMT",
-    "id": 86,
-    "object": {
-      "description_en": "Identify the initial letter of \"doll\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio2",
-      "name_en": "Doll",
-      "name_pt": "Boneca"
-    },
-    "result": {
-      "id": 5,
-      "response": "A",
-      "response_time_seconds": 15,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 13,
-      "name": "Pedro Henrique",
-      "username": "pedro_2025"
-    },
-    "date_time": "Sun, 25 May 2025 10:10:00 GMT",
-    "id": 88,
-    "object": {
-      "description_en": "Learn the Libras sign for \"fridge\".",
-      "description_pt": "Aprenda o sinal em Libras para \"geladeira\".",
-      "id": "http://libramigo.com/nivel2/desafio3",
-      "name_en": "Fridge",
-      "name_pt": "Geladeira"
-    },
-    "result": {
-      "id": 7,
-      "response": "C",
-      "response_time_seconds": 20,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Learning the full sign of kitchen objects.",
-      "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
-      "id": 2,
-      "name_en": "Libras Vocabulary - Kitchen",
-      "name_pt": "Vocabulário em Libras - Cozinha"
-    },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 13,
-      "name": "Pedro Henrique",
-      "username": "pedro_2025"
-    },
-    "date_time": "Sun, 25 May 2025 10:11:30 GMT",
-    "id": 89,
-    "object": {
-      "description_en": "Learn the Libras sign for \"fridge\".",
-      "description_pt": "Aprenda o sinal em Libras para \"geladeira\".",
-      "id": "http://libramigo.com/nivel2/desafio3",
-      "name_en": "Fridge",
-      "name_pt": "Geladeira"
-    },
-    "result": {
-      "id": 8,
-      "response": "D",
-      "response_time_seconds": 10,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Learning the full sign of kitchen objects.",
-      "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
-      "id": 2,
-      "name_en": "Libras Vocabulary - Kitchen",
-      "name_pt": "Vocabulário em Libras - Cozinha"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "Ana Luiza",
-      "username": "ana_lu"
-    },
-    "date_time": "Sun, 25 May 2025 10:14:00 GMT",
-    "id": 91,
-    "object": {
-      "description_en": "Learn the Libras sign for \"pan\".",
-      "description_pt": "Aprenda o sinal em Libras para \"panela\".",
-      "id": "http://libramigo.com/nivel2/desafio4",
-      "name_en": "Pan",
-      "name_pt": "Panela"
-    },
-    "result": {
-      "id": 10,
-      "response": "E",
-      "response_time_seconds": 12,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Learning the full sign of kitchen objects.",
-      "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
-      "id": 2,
-      "name_en": "Libras Vocabulary - Kitchen",
-      "name_pt": "Vocabulário em Libras - Cozinha"
-    },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "Ana Luiza",
-      "username": "ana_lu"
-    },
-    "date_time": "Sun, 25 May 2025 10:15:00 GMT",
-    "id": 92,
-    "object": {
-      "description_en": "Learn the Libras sign for \"pan\".",
-      "description_pt": "Aprenda o sinal em Libras para \"panela\".",
-      "id": "http://libramigo.com/nivel2/desafio4",
-      "name_en": "Pan",
-      "name_pt": "Panela"
-    },
-    "result": {
-      "id": 11,
-      "response": "C",
-      "response_time_seconds": 28,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Learning the full sign of kitchen objects.",
-      "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
-      "id": 2,
-      "name_en": "Libras Vocabulary - Kitchen",
-      "name_pt": "Vocabulário em Libras - Cozinha"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 6,
-      "name": "Lucas Gomes",
-      "username": "lucas_g"
-    },
-    "date_time": "Sun, 25 May 2025 10:20:00 GMT",
-    "id": 94,
-    "object": {
-      "description_en": "Use the sign for \"sofa\" in a Libras sentence.",
-      "description_pt": "Use o sinal de \"sofá\" em uma frase em Libras.",
-      "id": "http://libramigo.com/nivel3/desafio1",
-      "name_en": "Sofa",
-      "name_pt": "Sofá"
-    },
-    "result": {
-      "id": 13,
-      "response": "D",
-      "response_time_seconds": 14,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Build simple sentences using signs for living room objects.",
-      "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
-      "id": 3,
-      "name_en": "Sentences with Objects in Libras",
-      "name_pt": "Frases com objetos em Libras"
-    },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 6,
-      "name": "Lucas Gomes",
-      "username": "lucas_g"
-    },
-    "date_time": "Sun, 25 May 2025 10:21:00 GMT",
-    "id": 95,
-    "object": {
-      "description_en": "Use the sign for \"sofa\" in a Libras sentence.",
-      "description_pt": "Use o sinal de \"sofá\" em uma frase em Libras.",
-      "id": "http://libramigo.com/nivel3/desafio1",
-      "name_en": "Sofa",
-      "name_pt": "Sofá"
-    },
-    "result": {
-      "id": 14,
-      "response": "E",
-      "response_time_seconds": 35,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Build simple sentences using signs for living room objects.",
-      "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
-      "id": 3,
-      "name_en": "Sentences with Objects in Libras",
-      "name_pt": "Frases com objetos em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 9,
-      "name": "Sofia Silva",
-      "username": "sofia2025"
-    },
-    "date_time": "Sun, 25 May 2025 10:23:00 GMT",
-    "id": 97,
-    "object": {
-      "description_en": "Use the sign for \"television\" in a Libras sentence.",
-      "description_pt": "Use o sinal de \"televisão\" em uma frase em Libras.",
-      "id": "http://libramigo.com/nivel3/desafio2",
-      "name_en": "Television",
-      "name_pt": "Televisão"
-    },
-    "result": {
-      "id": 16,
-      "response": "mesa",
-      "response_time_seconds": 33,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Build simple sentences using signs for living room objects.",
-      "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
-      "id": 3,
-      "name_en": "Sentences with Objects in Libras",
-      "name_pt": "Frases com objetos em Libras"
-    },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 9,
-      "name": "Sofia Silva",
-      "username": "sofia2025"
-    },
-    "date_time": "Sun, 25 May 2025 10:24:15 GMT",
-    "id": 98,
-    "object": {
-      "description_en": "Use the sign for \"television\" in a Libras sentence.",
-      "description_pt": "Use o sinal de \"televisão\" em uma frase em Libras.",
-      "id": "http://libramigo.com/nivel3/desafio2",
-      "name_en": "Television",
-      "name_pt": "Televisão"
-    },
-    "result": {
-      "id": 17,
-      "response": "cama",
-      "response_time_seconds": 17,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Build simple sentences using signs for living room objects.",
-      "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
-      "id": 3,
-      "name_en": "Sentences with Objects in Libras",
-      "name_pt": "Frases com objetos em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 10:30:00 GMT",
-    "id": 100,
-    "object": {
-      "description_en": "Identify the initial letter of \"bed\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"cama\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio3",
-      "name_en": "Bed",
-      "name_pt": "Cama"
-    },
-    "result": {
-      "id": 19,
-      "response": "janela",
-      "response_time_seconds": 31,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 10:31:10 GMT",
-    "id": 101,
-    "object": {
-      "description_en": "Identify the initial letter of \"bed\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"cama\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio3",
-      "name_en": "Bed",
-      "name_pt": "Cama"
-    },
-    "result": {
-      "id": 20,
-      "response": "cadeira",
-      "response_time_seconds": 20,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Sun, 25 May 2025 10:02:30 GMT",
-    "id": 84,
-    "object": {
-      "description_en": "Identify the initial letter of \"pillow\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio1",
-      "name_en": "Pillow",
-      "name_pt": "Almofada"
-    },
-    "result": {
-      "id": 3,
-      "response": "A",
-      "response_time_seconds": 60,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 10:05:30 GMT",
-    "id": 87,
-    "object": {
-      "description_en": "Identify the initial letter of \"doll\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio2",
-      "name_en": "Doll",
-      "name_pt": "Boneca"
-    },
-    "result": {
-      "id": 6,
-      "response": "B",
-      "response_time_seconds": 30,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 13,
-      "name": "Pedro Henrique",
-      "username": "pedro_2025"
-    },
-    "date_time": "Sun, 25 May 2025 10:13:00 GMT",
-    "id": 90,
-    "object": {
-      "description_en": "Learn the Libras sign for \"fridge\".",
-      "description_pt": "Aprenda o sinal em Libras para \"geladeira\".",
-      "id": "http://libramigo.com/nivel2/desafio3",
-      "name_en": "Fridge",
-      "name_pt": "Geladeira"
-    },
-    "result": {
-      "id": 9,
-      "response": "A",
-      "response_time_seconds": 25,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Learning the full sign of kitchen objects.",
-      "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
-      "id": 2,
-      "name_en": "Libras Vocabulary - Kitchen",
-      "name_pt": "Vocabulário em Libras - Cozinha"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "Ana Luiza",
-      "username": "ana_lu"
-    },
-    "date_time": "Sun, 25 May 2025 10:16:30 GMT",
-    "id": 93,
-    "object": {
-      "description_en": "Learn the Libras sign for \"pan\".",
-      "description_pt": "Aprenda o sinal em Libras para \"panela\".",
-      "id": "http://libramigo.com/nivel2/desafio4",
-      "name_en": "Pan",
-      "name_pt": "Panela"
-    },
-    "result": {
-      "id": 12,
-      "response": "B",
-      "response_time_seconds": 18,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Learning the full sign of kitchen objects.",
-      "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
-      "id": 2,
-      "name_en": "Libras Vocabulary - Kitchen",
-      "name_pt": "Vocabulário em Libras - Cozinha"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 6,
-      "name": "Lucas Gomes",
-      "username": "lucas_g"
-    },
-    "date_time": "Sun, 25 May 2025 10:22:30 GMT",
-    "id": 96,
-    "object": {
-      "description_en": "Use the sign for \"sofa\" in a Libras sentence.",
-      "description_pt": "Use o sinal de \"sofá\" em uma frase em Libras.",
-      "id": "http://libramigo.com/nivel3/desafio1",
-      "name_en": "Sofa",
-      "name_pt": "Sofá"
-    },
-    "result": {
-      "id": 15,
-      "response": "bola",
-      "response_time_seconds": 22,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Build simple sentences using signs for living room objects.",
-      "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
-      "id": 3,
-      "name_en": "Sentences with Objects in Libras",
-      "name_pt": "Frases com objetos em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 9,
-      "name": "Sofia Silva",
-      "username": "sofia2025"
-    },
-    "date_time": "Sun, 25 May 2025 10:25:45 GMT",
-    "id": 99,
-    "object": {
-      "description_en": "Use the sign for \"television\" in a Libras sentence.",
-      "description_pt": "Use o sinal de \"televisão\" em uma frase em Libras.",
-      "id": "http://libramigo.com/nivel3/desafio2",
-      "name_en": "Television",
-      "name_pt": "Televisão"
-    },
-    "result": {
-      "id": 18,
-      "response": "livro",
-      "response_time_seconds": 19,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Build simple sentences using signs for living room objects.",
-      "description_pt": "Construção de frases simples usando sinais de objetos da sala.",
-      "id": 3,
-      "name_en": "Sentences with Objects in Libras",
-      "name_pt": "Frases com objetos em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 11:05:00 GMT",
-    "id": 113,
-    "object": {
-      "description_en": "Identify the initial letter of \"doll\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio2",
-      "name_en": "Doll",
-      "name_pt": "Boneca"
-    },
-    "result": {
-      "id": 25,
-      "response": "B",
-      "response_time_seconds": 20,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 11:06:00 GMT",
-    "id": 114,
-    "object": {
-      "description_en": "Identify the initial letter of \"doll\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio2",
-      "name_en": "Doll",
-      "name_pt": "Boneca"
-    },
-    "result": {
-      "id": 26,
-      "response": "C",
-      "response_time_seconds": 35,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 11:05:00 GMT",
-    "id": 124,
-    "object": {
-      "description_en": "Identify the initial letter of \"doll\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio2",
-      "name_en": "Doll",
-      "name_pt": "Boneca"
-    },
-    "result": {
-      "id": 25,
-      "response": "B",
-      "response_time_seconds": 20,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 11:06:00 GMT",
-    "id": 125,
-    "object": {
-      "description_en": "Identify the initial letter of \"doll\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio2",
-      "name_en": "Doll",
-      "name_pt": "Boneca"
-    },
-    "result": {
-      "id": 26,
-      "response": "C",
-      "response_time_seconds": 35,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 11:07:00 GMT",
-    "id": 126,
-    "object": {
-      "description_en": "Identify the initial letter of \"doll\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio2",
-      "name_en": "Doll",
-      "name_pt": "Boneca"
-    },
-    "result": {
-      "id": 27,
-      "response": "D",
-      "response_time_seconds": 15,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 11:15:00 GMT",
-    "id": 127,
-    "object": {
-      "description_en": "Learn the Libras sign for \"knife\".",
-      "description_pt": "Aprenda o sinal em Libras para \"faca\".",
-      "id": "http://libramigo.com/nivel2/desafio1",
-      "name_en": "Knife",
-      "name_pt": "Faca"
-    },
-    "result": {
-      "id": 28,
-      "response": "E",
-      "response_time_seconds": 25,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Learning the full sign of kitchen objects.",
-      "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
-      "id": 2,
-      "name_en": "Libras Vocabulary - Kitchen",
-      "name_pt": "Vocabulário em Libras - Cozinha"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 11,
-      "name": "Maria Eduarda",
-      "username": "maria_edu"
-    },
-    "date_time": "Sun, 25 May 2025 11:16:00 GMT",
-    "id": 128,
-    "object": {
-      "description_en": "Learn the Libras sign for \"knife\".",
-      "description_pt": "Aprenda o sinal em Libras para \"faca\".",
-      "id": "http://libramigo.com/nivel2/desafio1",
-      "name_en": "Knife",
-      "name_pt": "Faca"
-    },
-    "result": {
-      "id": 25,
-      "response": "B",
-      "response_time_seconds": 20,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Learning the full sign of kitchen objects.",
-      "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
-      "id": 2,
-      "name_en": "Libras Vocabulary - Kitchen",
-      "name_pt": "Vocabulário em Libras - Cozinha"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Mon, 26 May 2025 11:00:00 GMT",
-    "id": 102,
-    "object": {
-      "description_en": "Identify the initial letter of \"pillow\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio1",
-      "name_en": "Pillow",
-      "name_pt": "Almofada"
-    },
-    "result": {
-      "id": 21,
-      "response": "porta",
-      "response_time_seconds": 26,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Mon, 26 May 2025 11:01:00 GMT",
-    "id": 103,
-    "object": {
-      "description_en": "Identify the initial letter of \"pillow\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio1",
-      "name_en": "Pillow",
-      "name_pt": "Almofada"
-    },
-    "result": {
-      "id": 22,
-      "response": "espelho",
-      "response_time_seconds": 24,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Mon, 26 May 2025 11:02:00 GMT",
-    "id": 104,
-    "object": {
-      "description_en": "Identify the initial letter of \"pillow\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio1",
-      "name_en": "Pillow",
-      "name_pt": "Almofada"
-    },
-    "result": {
-      "id": 23,
-      "response": "armário",
-      "response_time_seconds": 29,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Tue, 27 May 2025 11:00:00 GMT",
-    "id": 116,
-    "object": {
-      "description_en": "Identify the initial letter of \"pillow\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio1",
-      "name_en": "Pillow",
-      "name_pt": "Almofada"
-    },
-    "result": {
-      "id": 21,
-      "response": "porta",
-      "response_time_seconds": 26,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "started",
-      "display_pt": "iniciou",
-      "id": "http://libramigo.com/expapi/verbs/started"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Tue, 27 May 2025 11:01:00 GMT",
-    "id": 117,
-    "object": {
-      "description_en": "Identify the initial letter of \"pillow\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio1",
-      "name_en": "Pillow",
-      "name_pt": "Almofada"
-    },
-    "result": {
-      "id": 22,
-      "response": "espelho",
-      "response_time_seconds": 24,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Wed, 28 May 2025 11:02:00 GMT",
-    "id": 120,
-    "object": {
-      "description_en": "Identify the initial letter of \"pillow\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"almofada\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio1",
-      "name_en": "Pillow",
-      "name_pt": "Almofada"
-    },
-    "result": {
-      "id": 23,
-      "response": "armário",
-      "response_time_seconds": 29,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Wed, 28 May 2025 11:10:00 GMT",
-    "id": 121,
-    "object": {
-      "description_en": "Identify the initial letter of \"alarm clock\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"despertador\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio4",
-      "name_en": "Alarm Clock",
-      "name_pt": "Despertador"
-    },
-    "result": {
-      "id": 24,
-      "response": "tapete",
-      "response_time_seconds": 16,
-      "success": true
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  },
-  {
-    "actor_username": {
-      "age": 12,
-      "name": "João Silva",
-      "username": "joao123"
-    },
-    "date_time": "Tue, 27 May 2025 11:11:00 GMT",
-    "id": 123,
-    "object": {
-      "description_en": "Identify the initial letter of \"alarm clock\" in Libras.",
-      "description_pt": "Descubra a letra inicial de \"despertador\" em Libras.",
-      "id": "http://libramigo.com/nivel1/desafio4",
-      "name_en": "Alarm Clock",
-      "name_pt": "Despertador"
-    },
-    "result": {
-      "id": 21,
-      "response": "porta",
-      "response_time_seconds": 26,
-      "success": false
-    },
-    "subject": {
-      "description_en": "Identify the initial letter of bedroom objects in Libras.",
-      "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-      "id": 1,
-      "name_en": "Letters in Libras",
-      "name_pt": "Letras em Libras"
-    },
-    "verb": {
-      "display_en": "answered",
-      "display_pt": "respondeu",
-      "id": "http://libramigo.com/expapi/verbs/answered"
-    }
-  }
 ]

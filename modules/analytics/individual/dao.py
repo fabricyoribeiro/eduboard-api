@@ -108,7 +108,7 @@ class IndividualAnalyticsDao:
         ]
 
         # Convert the date column to datetime and extract only the date
-        filtered_df["date"] = pd.to_datetime(filtered_df["date_time"]).dt.date
+        filtered_df["date"] = pd.to_datetime(filtered_df["date_time"], format='mixed').dt.date
 
         # Group by date and calculate the number of answers and correct answers
         result = (

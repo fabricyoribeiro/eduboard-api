@@ -1,8 +1,24 @@
-from flask import Blueprint, make_response
+from flask import Blueprint, make_response, jsonify
 from modules.analytics.dao import AnalyticsDao
+from modules.event.dao import EventDao
+import json
 
 app_analytics = Blueprint('analytics_blueprint', __name__)
 app_name = 'analytics'
+
+dao_event = EventDao()
+
+@app_analytics.route(f'/{app_name}/update-data', methods=["GET"])
+def update_data():
+  events = dao_event.get_all()
+  data = [event.get_data_dict() for event in events]
+  
+  with open('base_ficticia.json', 'w', encoding='utf-8') as f:
+      json.dump(data, f, indent=4, ensure_ascii=False, default=str)
+  
+  return jsonify({"message": "Dados atualizados com sucesso!"})
+
+
 
 @app_analytics.route(f'/{app_name}/indicators', methods=["GET"])
 def get_indicators():
@@ -40,3 +56,4 @@ def get_average_time_by_object():
   analytics = AnalyticsDao()
   average_time_by_object = analytics.get_average_time_by_object()
   return make_response(average_time_by_object)
+

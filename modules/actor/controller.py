@@ -43,5 +43,5 @@ def login(username):
 @app_actor.route(f"/{app_name}/all", methods=['GET'])
 def get_actors():
   actors = dao_actor.get_all()
-  data = [actor.get_data_dict() for actor in actors]
-  return make_response(jsonify(data))
+  # data = [actor.get_data_dict() for actor in actors]
+  return make_response(actors)
