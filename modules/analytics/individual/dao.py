@@ -19,6 +19,23 @@ class IndividualAnalyticsDao:
     #   self.database = ConnectDataBase().get_instance()
       self.username = username
     
+    def get_individual_variables(self):
+        
+        #pegar cada variavel do usuario
+        
+        accuracy = self.get_hit_and_miss_rate()
+        average_time = self.get_average_time_by_object()
+        
+        
+        return {
+                "accuracy": accuracy['correct_percentage'],
+                "actor": self.username,
+                "attempts": 5,
+                "average_time_per_attempt": average_time,
+                "game_time": 150,
+        }
+        
+    
     ## CRIAR ANALISE PARA ASSUNTO MAIOR DIFICULDADE E EVOLUÇÃO DE ACERTOS
     def get_individual_analysis(self):
         actor = dao_actor.get_by_username(self.username)

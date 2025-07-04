@@ -1,5 +1,6 @@
 from database.connect import ConnectDataBase
 from modules.event.dao import EventDao
+from modules.analytics.individual.dao import IndividualAnalyticsDao
 from flask import make_response
 import json
 import pandas as pd
@@ -12,6 +13,8 @@ class AnalyticsDao:
   
     _COUNT_ANSWERED_EVENTS = "SELECT COUNT(*) AS total_answered_events FROM event WHERE verb_id = 'http://libramigo.com/expapi/verbs/answered'"
     _COUNT_ACTORS = "SELECT COUNT(*) FROM actor"
+    
+    
     
     _SELECT_RESULTS_BY_ACTOR = """
         SELECT
@@ -30,6 +33,82 @@ class AnalyticsDao:
     def __init__(self):
       self.database = ConnectDataBase().get_instance()
        
+    def get_performance_classification(self):
+        
+        all_individual_variables = self.get_overall_individual_variables()
+        print("VARIAVEIS INDIVIDUAIS")
+        print(all_individual_variables)
+        
+        #aqui eu vou pegas as variaveis individuas e colocar no algoritmo de previsao0
+        
+        return all_individual_variables
+            
+        # return [
+        #         {
+        #             "actor": "João Silva",
+        #             "accuracy": 80,
+        #             "game_time": 150,
+        #             "average_time_per_attempt": 30,
+        #             "attempts": 5,
+        #             "performance": "Good"
+        #         },
+        #         {
+        #             "actor": "Maria Oliveira",
+        #             "accuracy": 60,
+        #             "game_time": 240,
+        #             "average_time_per_attempt": 40,
+        #             "attempts": 6,
+        #             "performance": "Average"
+        #         },
+        #         {
+        #             "actor": "Carlos Souza",
+        #             "accuracy": 40,
+        #             "game_time": 180,
+        #             "average_time_per_attempt": 36,
+        #             "attempts": 5,
+        #             "performance": "Poor"
+        #         },
+        #         {
+        #             "actor": "Ana Paula",
+        #             "accuracy": 100,
+        #             "game_time": 120,
+        #             "average_time_per_attempt": 20,
+        #             "attempts": 6,
+        #             "performance": "Excellent"
+        #         },
+        #         {
+        #             "actor": "Lucas Mendes",
+        #             "accuracy": 70,
+        #             "game_time": 210,
+        #             "average_time_per_attempt": 30,
+        #             "attempts": 7,
+        #             "performance": "Good"
+        #         }
+        #         ]
+
+
+    def get_overall_individual_variables(self):
+        with open("base_ficticia.json", "r", encoding='utf-8') as file:
+            data = json.load(file)
+        
+        usernames = set()
+        for entry in data:
+            actor = entry.get("actor_username", {})
+            username = actor.get("username")
+            if username:
+                usernames.add(username)
+
+
+        print(list(usernames))
+        
+        all_individual_variables = []
+        for username in usernames:
+            dao_individual = IndividualAnalyticsDao(username)
+            individual_data = dao_individual.get_individual_variables()
+            all_individual_variables.append(individual_data)
+        # print(all_individual_variables)
+        return all_individual_variables
+            
     def get_average_time_by_object(self):
         with open("base_ficticia.json", "r", encoding='utf-8') as file:
             data = json.load(file)

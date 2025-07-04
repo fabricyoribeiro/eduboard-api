@@ -19,6 +19,12 @@ def update_data():
   return jsonify({"message": "Dados atualizados com sucesso!"})
 
 
+@app_analytics.route(f'/{app_name}/performance-classification', methods=["GET"])
+def get_performance_classification():
+  analytics = AnalyticsDao()
+  # classification = analytics.get_performance_classification()
+  classification = analytics.get_overall_individual_variables()
+  return make_response(classification) 
 
 @app_analytics.route(f'/{app_name}/indicators', methods=["GET"])
 def get_indicators():
