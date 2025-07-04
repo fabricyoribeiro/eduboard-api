@@ -23,7 +23,7 @@ def update_data():
 def get_performance_classification():
   analytics = AnalyticsDao()
   # classification = analytics.get_performance_classification()
-  classification = analytics.get_overall_individual_variables()
+  classification = analytics.get_performance_predict()
   return make_response(classification) 
 
 @app_analytics.route(f'/{app_name}/indicators', methods=["GET"])

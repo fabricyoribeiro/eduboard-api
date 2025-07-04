@@ -2,6 +2,10 @@ from database.connect import ConnectDataBase
 from modules.event.dao import EventDao
 from modules.analytics.individual.dao import IndividualAnalyticsDao
 from flask import make_response
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 import json
 import pandas as pd
 from collections import defaultdict
@@ -32,59 +36,84 @@ class AnalyticsDao:
 
     def __init__(self):
       self.database = ConnectDataBase().get_instance()
-       
-    def get_performance_classification(self):
         
-        all_individual_variables = self.get_overall_individual_variables()
-        print("VARIAVEIS INDIVIDUAIS")
-        print(all_individual_variables)
-        
-        #aqui eu vou pegas as variaveis individuas e colocar no algoritmo de previsao0
-        
-        return all_individual_variables
+    def get_performance_predict(self):
+        # Dados de treino do modelo
+        training_data = [
+            {"accuracy": 80, "game_time": 150, "average_time_per_attempt": 30, "attempts": 5, "performance": "Bom"},
+            {"accuracy": 60, "game_time": 240, "average_time_per_attempt": 40, "attempts": 6, "performance": "Regular"},
+            {"accuracy": 40, "game_time": 180, "average_time_per_attempt": 36, "attempts": 5, "performance": "Ruim"},
+            {"accuracy": 100, "game_time": 120, "average_time_per_attempt": 20, "attempts": 6, "performance": "Excelente"},
+            {"accuracy": 70, "game_time": 210, "average_time_per_attempt": 30, "attempts": 7, "performance": "Bom"},
             
-        # return [
-        #         {
-        #             "actor": "João Silva",
-        #             "accuracy": 80,
-        #             "game_time": 150,
-        #             "average_time_per_attempt": 30,
-        #             "attempts": 5,
-        #             "performance": "Good"
-        #         },
-        #         {
-        #             "actor": "Maria Oliveira",
-        #             "accuracy": 60,
-        #             "game_time": 240,
-        #             "average_time_per_attempt": 40,
-        #             "attempts": 6,
-        #             "performance": "Average"
-        #         },
-        #         {
-        #             "actor": "Carlos Souza",
-        #             "accuracy": 40,
-        #             "game_time": 180,
-        #             "average_time_per_attempt": 36,
-        #             "attempts": 5,
-        #             "performance": "Poor"
-        #         },
-        #         {
-        #             "actor": "Ana Paula",
-        #             "accuracy": 100,
-        #             "game_time": 120,
-        #             "average_time_per_attempt": 20,
-        #             "attempts": 6,
-        #             "performance": "Excellent"
-        #         },
-        #         {
-        #             "actor": "Lucas Mendes",
-        #             "accuracy": 70,
-        #             "game_time": 210,
-        #             "average_time_per_attempt": 30,
-        #             "attempts": 7,
-        #             "performance": "Good"
-        #         }
-        #         ]
+            {"accuracy": 90, "game_time": 130, "average_time_per_attempt": 22, "attempts": 6, "performance": "Excelente"},
+            {"accuracy": 55, "game_time": 230, "average_time_per_attempt": 38, "attempts": 6, "performance": "Regular"},
+            {"accuracy": 35, "game_time": 300, "average_time_per_attempt": 50, "attempts": 6, "performance": "Ruim"},
+            {"accuracy": 85, "game_time": 160, "average_time_per_attempt": 27, "attempts": 6, "performance": "Bom"},
+            {"accuracy": 95, "game_time": 110, "average_time_per_attempt": 18, "attempts": 6, "performance": "Excelente"},
+            
+            {"accuracy": 65, "game_time": 225, "average_time_per_attempt": 34.6, "attempts": 6, "performance": "Regular"},
+            {"accuracy": 45, "game_time": 250, "average_time_per_attempt": 41.6, "attempts": 6, "performance": "Ruim"},
+            {"accuracy": 78, "game_time": 170, "average_time_per_attempt": 28.3, "attempts": 6, "performance": "Bom"},
+            {"accuracy": 88, "game_time": 140, "average_time_per_attempt": 21.6, "attempts": 6, "performance": "Excelente"},
+            {"accuracy": 50, "game_time": 260, "average_time_per_attempt": 43.3, "attempts": 6, "performance": "Ruim"},
+            
+            {"accuracy": 72, "game_time": 200, "average_time_per_attempt": 29, "attempts": 6, "performance": "Bom"},
+            {"accuracy": 58, "game_time": 235, "average_time_per_attempt": 37.5, "attempts": 6, "performance": "Regular"},
+            {"accuracy": 38, "game_time": 280, "average_time_per_attempt": 46.6, "attempts": 6, "performance": "Ruim"},
+            {"accuracy": 92, "game_time": 125, "average_time_per_attempt": 19.5, "attempts": 6, "performance": "Excelente"},
+            {"accuracy": 67, "game_time": 215, "average_time_per_attempt": 32, "attempts": 6, "performance": "Bom"},
+        ]
+
+        df = pd.DataFrame(training_data)
+
+        # Define variáveis X e y
+        X = df[["accuracy", "game_time", "average_time_per_attempt", "attempts"]]
+        y = df["performance"]
+
+        # Codifica os labels
+        le = LabelEncoder()
+        y_encoded = le.fit_transform(y)
+
+        # Normaliza os dados
+        scaler = StandardScaler()
+        X_scaled = scaler.fit_transform(X)
+
+        # Treina o modelo
+        knn = KNeighborsClassifier(n_neighbors=5)
+        knn.fit(X_scaled, y_encoded)
+
+        # Obtém os dados dos alunos
+        all_individual_variables = self.get_overall_individual_variables()
+
+        # Lista de saída
+        results = []
+
+        for aluno in all_individual_variables:
+            # Monta os dados e aplica a mesma normalização
+            features = [[
+                aluno["accuracy"],
+                aluno["game_time"],
+                aluno["average_time_per_attempt"],
+                aluno["attempts"]
+            ]]
+            features_scaled = scaler.transform(features)
+
+            # Faz a previsão
+            pred_encoded = knn.predict(features_scaled)
+            pred_label = le.inverse_transform(pred_encoded)[0]
+
+            # Adiciona à lista de resultados
+            results.append({
+                "actor": aluno["actor"],
+                "accuracy": aluno["accuracy"],
+                "game_time": aluno["game_time"],
+                "average_time_per_attempt": aluno["average_time_per_attempt"],
+                "attempts": aluno["attempts"],
+                "performance": pred_label
+            })
+
+        return results
 
 
     def get_overall_individual_variables(self):
@@ -106,14 +135,13 @@ class AnalyticsDao:
             dao_individual = IndividualAnalyticsDao(username)
             individual_data = dao_individual.get_individual_variables()
             all_individual_variables.append(individual_data)
-        # print(all_individual_variables)
+        print("VARIAVEIS,", all_individual_variables)
         return all_individual_variables
             
     def get_average_time_by_object(self):
         with open("base_ficticia.json", "r", encoding='utf-8') as file:
             data = json.load(file)
 
-        # Garante que os dados sejam uma lista de eventos
         if not isinstance(data, list):
             data = [data]
 

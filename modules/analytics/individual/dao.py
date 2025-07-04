@@ -25,14 +25,15 @@ class IndividualAnalyticsDao:
         
         accuracy = self.get_hit_and_miss_rate()
         average_time = self.get_average_time_by_object()
-        
+        attempts = self.get_count_answered_events()
+        game_time = self.get_game_time()
         
         return {
                 "accuracy": accuracy['correct_percentage'],
                 "actor": self.username,
-                "attempts": 5,
+                "attempts": attempts['value'],
                 "average_time_per_attempt": average_time,
-                "game_time": 150,
+                "game_time": game_time,
         }
         
     
@@ -74,6 +75,25 @@ class IndividualAnalyticsDao:
         
 
         return individual_analysis
+    
+    def get_game_time(self):
+        with open("base_ficticia.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+
+        # Cria DataFrame
+        df = pd.json_normalize(data)
+
+        # Filtra apenas eventos com verbo "answered" e username correspondente
+        df_answered = df[
+            (df['verb.display_en'] == 'answered') &
+            (df['actor_username.username'] == self.username)
+        ]
+
+        # Soma os tempos de resposta e converte para int nativo do Python
+        total_time = int(df_answered['result.response_time_seconds'].sum())
+
+        return total_time
+    
     
     #USANDO
     def get_most_difficult_subject(self):
