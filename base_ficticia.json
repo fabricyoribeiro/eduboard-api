@@ -1122,74 +1122,6 @@
         "date_time": "2025-05-28 11:02:00"
     },
     {
-        "id": 123,
-        "actor_username": {
-            "username": "joao123",
-            "name": "João Silva",
-            "age": 12
-        },
-        "verb": {
-            "id": "http://libramigo.com/expapi/verbs/answered",
-            "display_pt": "respondeu",
-            "display_en": "answered"
-        },
-        "object": {
-            "id": "http://libramigo.com/nivel1/desafio4",
-            "name_pt": "Despertador",
-            "name_en": "Alarm Clock",
-            "description_pt": "Descubra a letra inicial de \"despertador\" em Libras.",
-            "description_en": "Identify the initial letter of \"alarm clock\" in Libras."
-        },
-        "subject": {
-            "id": 1,
-            "name_pt": "Letras em Libras",
-            "name_en": "Letters in Libras",
-            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-            "description_en": "Identify the initial letter of bedroom objects in Libras."
-        },
-        "result": {
-            "id": 21,
-            "success": false,
-            "response": "porta",
-            "response_time_seconds": 26
-        },
-        "date_time": "2025-05-27 11:11:00"
-    },
-    {
-        "id": 121,
-        "actor_username": {
-            "username": "joao123",
-            "name": "João Silva",
-            "age": 12
-        },
-        "verb": {
-            "id": "http://libramigo.com/expapi/verbs/answered",
-            "display_pt": "respondeu",
-            "display_en": "answered"
-        },
-        "object": {
-            "id": "http://libramigo.com/nivel1/desafio4",
-            "name_pt": "Despertador",
-            "name_en": "Alarm Clock",
-            "description_pt": "Descubra a letra inicial de \"despertador\" em Libras.",
-            "description_en": "Identify the initial letter of \"alarm clock\" in Libras."
-        },
-        "subject": {
-            "id": 1,
-            "name_pt": "Letras em Libras",
-            "name_en": "Letters in Libras",
-            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
-            "description_en": "Identify the initial letter of bedroom objects in Libras."
-        },
-        "result": {
-            "id": 24,
-            "success": true,
-            "response": "tapete",
-            "response_time_seconds": 16
-        },
-        "date_time": "2025-05-28 11:10:00"
-    },
-    {
         "id": 129,
         "actor_username": {
             "username": "joao123",
@@ -1256,5 +1188,107 @@
             "response_time_seconds": 25
         },
         "date_time": "2025-06-28 18:51:03.898000"
+    },
+    {
+        "id": 131,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel2/desafio2",
+            "name_pt": "Garfo",
+            "name_en": "Fork",
+            "description_pt": "Aprenda o sinal em Libras para \"garfo\".",
+            "description_en": "Learn the Libras sign for \"fork\"."
+        },
+        "subject": {
+            "id": 2,
+            "name_pt": "Vocabulário em Libras - Cozinha",
+            "name_en": "Libras Vocabulary - Kitchen",
+            "description_pt": "Aprendizado do sinal completo de objetos da cozinha.",
+            "description_en": "Learning the full sign of kitchen objects."
+        },
+        "result": {
+            "id": 29,
+            "success": true,
+            "response": "cozinha",
+            "response_time_seconds": 20
+        },
+        "date_time": "2025-07-06 23:49:08.442000"
+    },
+    {
+        "id": 121,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 24,
+            "success": true,
+            "response": "tapete",
+            "response_time_seconds": 16
+        },
+        "date_time": "2025-05-28 11:10:00"
+    },
+    {
+        "id": 123,
+        "actor_username": {
+            "username": "joao123",
+            "name": "João Silva",
+            "age": 12
+        },
+        "verb": {
+            "id": "http://libramigo.com/expapi/verbs/answered",
+            "display_pt": "respondeu",
+            "display_en": "answered"
+        },
+        "object": {
+            "id": "http://libramigo.com/nivel1/desafio2",
+            "name_pt": "Boneca",
+            "name_en": "Doll",
+            "description_pt": "Descubra a letra inicial de \"boneca\" em Libras.",
+            "description_en": "Identify the initial letter of \"doll\" in Libras."
+        },
+        "subject": {
+            "id": 1,
+            "name_pt": "Letras em Libras",
+            "name_en": "Letters in Libras",
+            "description_pt": "Identificação da letra inicial de objetos do quarto em Libras.",
+            "description_en": "Identify the initial letter of bedroom objects in Libras."
+        },
+        "result": {
+            "id": 21,
+            "success": false,
+            "response": "porta",
+            "response_time_seconds": 26
+        },
+        "date_time": "2025-05-27 11:11:00"
     }
 ]

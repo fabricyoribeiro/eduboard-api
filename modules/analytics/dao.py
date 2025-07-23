@@ -38,34 +38,16 @@ class AnalyticsDao:
       self.database = ConnectDataBase().get_instance()
         
     def get_performance_predict(self):
-        # Dados de treino do modelo
-        training_data = [
-            {"accuracy": 80, "game_time": 150, "average_time_per_attempt": 30, "attempts": 5, "performance": "Bom"},
-            {"accuracy": 60, "game_time": 240, "average_time_per_attempt": 40, "attempts": 6, "performance": "Regular"},
-            {"accuracy": 40, "game_time": 180, "average_time_per_attempt": 36, "attempts": 5, "performance": "Ruim"},
-            {"accuracy": 100, "game_time": 120, "average_time_per_attempt": 20, "attempts": 6, "performance": "Excelente"},
-            {"accuracy": 70, "game_time": 210, "average_time_per_attempt": 30, "attempts": 7, "performance": "Bom"},
-            
-            {"accuracy": 90, "game_time": 130, "average_time_per_attempt": 22, "attempts": 6, "performance": "Excelente"},
-            {"accuracy": 55, "game_time": 230, "average_time_per_attempt": 38, "attempts": 6, "performance": "Regular"},
-            {"accuracy": 35, "game_time": 300, "average_time_per_attempt": 50, "attempts": 6, "performance": "Ruim"},
-            {"accuracy": 85, "game_time": 160, "average_time_per_attempt": 27, "attempts": 6, "performance": "Bom"},
-            {"accuracy": 95, "game_time": 110, "average_time_per_attempt": 18, "attempts": 6, "performance": "Excelente"},
-            
-            {"accuracy": 65, "game_time": 225, "average_time_per_attempt": 34.6, "attempts": 6, "performance": "Regular"},
-            {"accuracy": 45, "game_time": 250, "average_time_per_attempt": 41.6, "attempts": 6, "performance": "Ruim"},
-            {"accuracy": 78, "game_time": 170, "average_time_per_attempt": 28.3, "attempts": 6, "performance": "Bom"},
-            {"accuracy": 88, "game_time": 140, "average_time_per_attempt": 21.6, "attempts": 6, "performance": "Excelente"},
-            {"accuracy": 50, "game_time": 260, "average_time_per_attempt": 43.3, "attempts": 6, "performance": "Ruim"},
-            
-            {"accuracy": 72, "game_time": 200, "average_time_per_attempt": 29, "attempts": 6, "performance": "Bom"},
-            {"accuracy": 58, "game_time": 235, "average_time_per_attempt": 37.5, "attempts": 6, "performance": "Regular"},
-            {"accuracy": 38, "game_time": 280, "average_time_per_attempt": 46.6, "attempts": 6, "performance": "Ruim"},
-            {"accuracy": 92, "game_time": 125, "average_time_per_attempt": 19.5, "attempts": 6, "performance": "Excelente"},
-            {"accuracy": 67, "game_time": 215, "average_time_per_attempt": 32, "attempts": 6, "performance": "Bom"},
-        ]
+            # Dados de treino do modelo
+        with open("dados_sinteticos.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
 
-        df = pd.DataFrame(training_data)
+        # Garante que os dados estejam em formato de lista
+        if not isinstance(data, list):
+            data = [data]
+
+        # Converte para DataFrame
+        df = pd.DataFrame(data)
 
         # Define variáveis X e y
         X = df[["accuracy", "game_time", "average_time_per_attempt", "attempts"]]
