@@ -5,7 +5,7 @@ from flask import make_response
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, accuracy_score
 import json
 import pandas as pd
 from collections import defaultdict
@@ -62,11 +62,19 @@ class AnalyticsDao:
         X_scaled = scaler.fit_transform(X)
 
         # Treina o modelo
-        knn = KNeighborsClassifier(n_neighbors=5)
+        knn = KNeighborsClassifier(n_neighbors=3)
         knn.fit(X_scaled, y_encoded)
+        
+        #verifica acuracia
+        y_pred_train = knn.predict(X_scaled)
+        acc = accuracy_score(y_encoded, y_pred_train)
+        print(f"Acurácia do modelo KNN nos dados de treinamento: {acc:.2f}")
 
         # Obtém os dados dos alunos
         all_individual_variables = self.get_overall_individual_variables()
+
+        print(knn.get_params())
+        #{'algorithm': 'auto', 'leaf_size': 30, 'metric': 'minkowski', 'metric_params': None, 'n_jobs': None, 'n_neighbors': 5, 'p': 2, 'weights': 'uniform'}
 
         # Lista de saída
         results = []
