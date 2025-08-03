@@ -13,14 +13,19 @@ SECRET_KEY = os.getenv("SECRET_KEY", "sua-chave-super-secreta")
 @app_login.route("/login", methods=["POST"])
 def login():
     data = request.get_json()
+    print(data["email"], data["password"])
+    
     if not data:
         return jsonify(message="Dados de login não fornecidos!"), 400
-    if "username" not in data or "password" not in data:
-        return jsonify(message="Campos 'username' e 'password' são obrigatórios!"), 400
-    if data["username"] == "admin" and data["password"] == "123":
+    if "email" not in data or "password" not in data:
+        return jsonify(message="Campos 'email' e 'password' são obrigatórios!"), 400
+    if data["email"] == "admin" and data["password"] == "admin":
+        
+        print(data["email"], data["password"])
+        
         # Gerar o token com expiração
         token = jwt.encode(
-            {"user": data["username"], "exp": datetime.utcnow() + timedelta(minutes=30)},
+            {"user": data["email"], "exp": datetime.utcnow() + timedelta(minutes=30)},
             SECRET_KEY,
             algorithm="HS256"
         )
